@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styles from "./App.module.css";
+import Content from "./components/Content";
+import Timeline from "./components/TimeLine";
+import { useEffect, useState, useRef } from "react";
+
+const sections = [
+  { id: "section1", label: "Start" },
+  { id: "section2", label: "First Milestone" },
+  { id: "section3", label: "Second Milestone" },
+  { id: "section4", label: "Finale" },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeSection, setActiveSection] = useState("");
+  const sectionRefs = useRef([]);
+
+  function handleScroll() {
+    const offsets = sectionRefs.current.map(
+      (ref) => ref.getBoundingClientRect().top
+    );
+    const activeIndex = offsets.findIndex((offset, index) => {
+      const nextOffset = offsets[index + 1];
+      return (
+        offset <= window.innerHeight / 2 &&
+        (!nextOffset || nextOffset > window.innerHeight / 2)
+      );
+    });
+
+    if (activeIndex !== -1 && sections[activeIndex].id !== activeSection) {
+      setActiveSection(sections[activeIndex].id);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className={styles.app}>
+      <>
+        <Timeline sections={sections} activeSection={activeSection} />
+        <Content sections={sections} sectionRefs={sectionRefs} />
+      </>
+    </div>
+  );
 }
 
-export default App
+export default App;

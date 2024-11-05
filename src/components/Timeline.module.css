@@ -1,0 +1,33 @@
+.timeline {
+  position: fixed;
+  top: 40px; /* Distance from the top where it becomes sticky */
+  /* width: 200px; */
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  border: 1px white solid;
+  /* padding: 40px; */
+}
+
+.timelineItem {
+  margin: 40px;
+  /* margin-top: 40px; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: 1px solid white; */
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: gray;
+  transition: background-color 0.3s;
+  margin-right: 20px;
+}
+
+.dot.active {
+  background-color: blue;
+}
