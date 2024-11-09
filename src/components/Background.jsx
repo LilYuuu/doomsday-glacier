@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Background.module.css";
+import BackgroundVideo from "./BackgroundVideo";
+import BackgroundImage from "./BackgroundImage";
 
 function Background({ sections, activeSection, background }) {
   const videoRef = useRef(null);
@@ -34,31 +36,49 @@ function Background({ sections, activeSection, background }) {
 
   return (
     <div className={styles.backgroundLayer}>
-      {sections.map((section) =>
-        section.background.type === "video" ? (
-          <video
-            key={section.id}
-            className={`${styles.backgroundItem} ${
-              section.id === activeSection ? styles.active : ""
-            }`}
-            ref={videoRef}
-            autoPlay={section.background.play}
-            muted
-            loop
-          >
-            <source src={section.background.src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <div
-            key={section.id}
-            className={`${styles.backgroundItem}  ${
-              section.id === activeSection ? styles.active : ""
-            }`}
-            style={{ backgroundImage: `url(${section.background.src})` }}
-          />
-        )
-      )}
+      <BackgroundVideo
+        section={sections[0]}
+        name={`${styles.backgroundItem} ${
+          sections[0].id === activeSection ? styles.active : ""
+        }`}
+      />
+      <BackgroundVideo
+        section={sections[1]}
+        name={`${styles.backgroundItem} ${
+          sections[1].id === activeSection ? styles.active : ""
+        }`}
+      />
+      {/* <BackgroundImage
+        section={sections[2]}
+        name={`${styles.backgroundItem}  ${
+          sections[2].id === activeSection ? styles.active : ""
+        }`}
+      /> */}
+
+      {/* {sections.map(function (section) {
+        if (section.background.type === "video") {
+          return (
+            <BackgroundVideo
+              key={section.id}
+              source={section.background.src}
+              ifPlay={section.background.play}
+              name={`${styles.backgroundItem} ${
+                section.id === activeSection ? styles.active : ""
+              }`}
+            />
+          );
+        } else {
+          return (
+            <BackgroundImage
+              key={section.id}
+              source={section.background.src}
+              name={`${styles.backgroundItem}  ${
+                section.id === activeSection ? styles.active : ""
+              }`}
+            />
+          );
+        }
+      })} */}
     </div>
   );
 }

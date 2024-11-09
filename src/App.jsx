@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import Background from "./components/Background";
 import Content from "./components/Content";
+import Draggable from "./components/Draggable";
 import Timeline from "./components/TimeLine";
 import { useEffect, useState, useRef } from "react";
 
@@ -23,7 +24,7 @@ const sections = [
 ];
 
 function App() {
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("2004");
   const sectionRefs = useRef([]);
   const [background, setBackground] = useState(sections[0].background);
 
@@ -58,8 +59,9 @@ function App() {
         activeSection={activeSection}
         background={background}
       />
-      <Timeline sections={sections} activeSection={activeSection} />
       <Content sections={sections} sectionRefs={sectionRefs} />
+
+      <Timeline sections={sections} activeSection={activeSection} />
     </div>
   );
 }
