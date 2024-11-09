@@ -1,18 +1,31 @@
 import styles from "./App.module.css";
+import Background from "./components/Background";
 import Content from "./components/Content";
 import Timeline from "./components/TimeLine";
 import { useEffect, useState, useRef } from "react";
 
 const sections = [
-  { id: "section1", label: "Start" },
-  { id: "section2", label: "First Milestone" },
-  { id: "section3", label: "Second Milestone" },
-  { id: "section4", label: "Finale" },
+  {
+    id: "2004",
+    label: "2004",
+    background: { type: "video", src: "./assets/time-lapse.mp4", play: false },
+  },
+  {
+    id: "2014",
+    label: "2014",
+    background: { type: "video", src: "./assets/time-lapse.mp4", play: true },
+  },
+  {
+    id: "2019",
+    label: "2019",
+    background: { type: "image", src: "./assets/slider-2001.png", play: false },
+  },
 ];
 
 function App() {
   const [activeSection, setActiveSection] = useState("");
   const sectionRefs = useRef([]);
+  const [background, setBackground] = useState(sections[0].background);
 
   function handleScroll() {
     const offsets = sectionRefs.current.map(
@@ -27,7 +40,9 @@ function App() {
     });
 
     if (activeIndex !== -1 && sections[activeIndex].id !== activeSection) {
+      const activeBackground = sections[activeIndex].background;
       setActiveSection(sections[activeIndex].id);
+      setBackground(activeBackground);
     }
   }
 
@@ -38,10 +53,13 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <>
-        <Timeline sections={sections} activeSection={activeSection} />
-        <Content sections={sections} sectionRefs={sectionRefs} />
-      </>
+      <Background
+        sections={sections}
+        activeSection={activeSection}
+        background={background}
+      />
+      <Timeline sections={sections} activeSection={activeSection} />
+      <Content sections={sections} sectionRefs={sectionRefs} />
     </div>
   );
 }

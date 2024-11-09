@@ -1,0 +1,52 @@
+.backgroundLayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it is behind the content */
+}
+
+.backgroundItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+.active {
+  opacity: 1;
+}
+
+/* .backgroundVideo {
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out; 
+  height: 100vh;
+} */
+
+/* .backgroundImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out; 
+  height: 100vh;
+} */
+
+/* video {
+  height: 100vh;
+} */
+
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}

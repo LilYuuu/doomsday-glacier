@@ -10,8 +10,10 @@ function Content({ sections, sectionRefs }) {
           ref={(el) => (sectionRefs.current[index] = el)}
           className={styles.section}
         >
-          <h2>{section.label}</h2>
-          <p>This is content for {section.label}.</p>
+          <div className={styles.textOverlay}>
+            <h2>{section.label}</h2>
+            <p>This is content for {section.label}.</p>
+          </div>
         </div>
       ))}
     </div>
