@@ -35,7 +35,7 @@
 }
 
 .before {
-  clip: rect(0, 360px, 550px, 0);
+  clip: rect(0, calc(var(--container-width) / 2), var(--container-height), 0);
   /* Initially showing half of the image */
 }
 
