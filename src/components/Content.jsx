@@ -1,4 +1,5 @@
 import styles from "./Content.module.css";
+import ContentItem from "./ContentItem";
 import Draggable from "./Draggable";
 
 function Content({ sections, sectionRefs }) {
@@ -14,6 +15,17 @@ function Content({ sections, sectionRefs }) {
           <p>This is content for {sections[0].label}.</p>
         </div>
       </div>
+
+      {/* <div
+        id={sections[0].id}
+        ref={(el) => (sectionRefs.current[0] = el)}
+        className={styles.section}
+      >
+        <div className={styles.textOverlay}>
+          <h2>{sections[0].label}</h2>
+          <p>This is content for {sections[0].label}.</p>
+        </div>
+      </div> */}
 
       <div
         id={sections[1].id}

@@ -8,30 +8,46 @@ function Draggable() {
   const sliderButtonRef = useRef(null);
   const sliderLineRef = useRef(null);
 
-  useEffect(() => {
-    const slider = sliderRef.current;
+  function handleSliderInput(e) {
+    // const slider = sliderRef.current;
     const beforeImage = beforeImageRef.current;
     const sliderButton = sliderButtonRef.current;
     const sliderLine = sliderLineRef.current;
+    const sliderValue = e.target.value;
+    const width = beforeImage.offsetWidth;
+    const height = beforeImage.offsetHeight;
+    const newClip = (sliderValue / 100) * width;
 
-    const handleSliderInput = (e) => {
-      const sliderValue = e.target.value;
-      const width = beforeImage.offsetWidth;
-      const newClip = (sliderValue / 100) * width;
+    // Apply the clipping to the image and move the button and line
+    beforeImage.style.clip = `rect(0, ${newClip}px, ${height}px, 0)`;
+    sliderButton.style.left = `${newClip}px`;
+    sliderLine.style.left = `${newClip}px`;
+  }
 
-      // Apply the clipping to the image and move the button and line
-      beforeImage.style.clip = `rect(0, ${newClip}px, 550px, 0)`;
-      sliderButton.style.left = `${newClip}px`;
-      sliderLine.style.left = `${newClip}px`;
-    };
+  //   useEffect(() => {
+  //     const slider = sliderRef.current;
+  //     const beforeImage = beforeImageRef.current;
+  //     const sliderButton = sliderButtonRef.current;
+  //     const sliderLine = sliderLineRef.current;
 
-    slider.addEventListener("input", handleSliderInput);
+  //     const handleSliderInput = (e) => {
+  //       const sliderValue = e.target.value;
+  //       const width = beforeImage.offsetWidth;
+  //       const newClip = (sliderValue / 100) * width;
 
-    // Clean up event listener on component unmount
-    return () => {
-      slider.removeEventListener("input", handleSliderInput);
-    };
-  }, []);
+  //       // Apply the clipping to the image and move the button and line
+  //       beforeImage.style.clip = `rect(0, ${newClip}px, 550px, 0)`;
+  //       sliderButton.style.left = `${newClip}px`;
+  //       sliderLine.style.left = `${newClip}px`;
+  //     };
+
+  //     slider.addEventListener("input", handleSliderInput);
+
+  //     // Clean up event listener on component unmount
+  //     return () => {
+  //       slider.removeEventListener("input", handleSliderInput);
+  //     };
+  //   }, []);
 
   return (
     <div className={styles.outerContainer}>
@@ -56,6 +72,7 @@ function Draggable() {
           max="100"
           value="50"
           className={styles.slider}
+          onChange={handleSliderInput}
         />
         <div ref={sliderLineRef} className={styles.sliderLine}></div>
         <div

@@ -1,3 +1,8 @@
+:root {
+  --container-width: 720px;
+  --container-height: 550px;
+}
+
 .outerContainer {
   display: flex;
   justify-content: center;
@@ -8,8 +13,8 @@
 
 .container {
   position: relative;
-  width: 720px;
-  height: 550px;
+  width: var(--container-width);
+  height: var(--container-height);
   overflow: hidden;
 }
 
@@ -30,7 +35,8 @@
 }
 
 .before {
-  clip: rect(0, 300px, 400px, 0); /* Initially showing half of the image */
+  clip: rect(0, 360px, 550px, 0);
+  /* Initially showing half of the image */
 }
 
 .slider {
