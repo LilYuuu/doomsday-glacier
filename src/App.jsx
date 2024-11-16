@@ -1,7 +1,6 @@
 import styles from "./App.module.css";
 import Background from "./components/Background";
 import Content from "./components/Content";
-import Draggable from "./components/Draggable";
 import Timeline from "./components/TimeLine";
 import { useEffect, useState, useRef } from "react";
 
@@ -24,6 +23,7 @@ const sections = [
 ];
 
 function App() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [activeSection, setActiveSection] = useState("2004");
   const sectionRefs = useRef([]);
   const [background, setBackground] = useState(sections[0].background);
@@ -32,25 +32,28 @@ function App() {
     const offsets = sectionRefs.current.map(
       (ref) => ref.getBoundingClientRect().top
     );
-    const activeIndex = offsets.findIndex((offset, index) => {
+    const newIndex = offsets.findIndex((offset, index) => {
       const nextOffset = offsets[index + 1];
       return (
         offset <= window.innerHeight / 2 &&
-        (!nextOffset || nextOffset > window.innerHeight / 2)
+        (nextOffset === undefined || nextOffset > window.innerHeight / 2)
       );
     });
-
-    if (activeIndex !== -1 && sections[activeIndex].id !== activeSection) {
-      const activeBackground = sections[activeIndex].background;
-      setActiveSection(sections[activeIndex].id);
-      setBackground(activeBackground);
+    if (newIndex !== -1) {
+      setActiveIndex(newIndex);
     }
   }
+  useEffect(() => {
+    if (activeIndex !== -1 && sections[activeIndex].id !== activeSection) {
+      setActiveSection(sections[activeIndex].id);
+      setBackground(sections[activeIndex].background);
+    }
+  }, [activeIndex]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
+  }, []);
 
   return (
     <div className={styles.app}>
