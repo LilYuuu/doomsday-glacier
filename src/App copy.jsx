@@ -2,10 +2,7 @@ import styles from "./App.module.css";
 import Background from "./components/Background";
 import Content from "./components/Content";
 import Timeline from "./components/TimeLine";
-import Draggable from "./components/Draggable";
 import { useEffect, useState, useRef } from "react";
-import { Scrollama, Step } from "react-scrollama";
-import ScrollamaContainer from "./components/ScrollamaContainer";
 
 const sections = [
   {
@@ -28,15 +25,35 @@ const sections = [
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeSection, setActiveSection] = useState("2004");
-  // const sectionRefs = useRef([]);
+  const sectionRefs = useRef([]);
   const [background, setBackground] = useState(sections[0].background);
 
+  function handleScroll() {
+    const offsets = sectionRefs.current.map(
+      (ref) => ref.getBoundingClientRect().top
+    );
+    const newIndex = offsets.findIndex((offset, index) => {
+      const nextOffset = offsets[index + 1];
+      return (
+        offset <= window.innerHeight / 2 &&
+        (nextOffset === undefined || nextOffset > window.innerHeight / 2)
+      );
+    });
+    if (newIndex !== -1) {
+      setActiveIndex(newIndex);
+    }
+  }
   useEffect(() => {
     if (activeIndex !== -1 && sections[activeIndex].id !== activeSection) {
       setActiveSection(sections[activeIndex].id);
       setBackground(sections[activeIndex].background);
     }
-  }, [activeIndex, activeSection]);
+  }, [activeIndex]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className={styles.app}>
@@ -45,31 +62,9 @@ function App() {
         activeSection={activeSection}
         background={background}
       />
-      {/* <Content sections={sections} sectionRefs={sectionRefs} /> */}
+      <Content sections={sections} sectionRefs={sectionRefs} />
 
       <Timeline sections={sections} activeSection={activeSection} />
-
-      <div
-        style={{
-          position: "fixed",
-          top: "10%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          padding: "10px 20px",
-          background: "rgba(0, 0, 0, 0.7)",
-          color: "white",
-          borderRadius: "5px",
-          zIndex: 10,
-        }}
-      >
-        Current Step: {activeIndex !== null ? activeIndex + 1 : "None"}
-      </div>
-
-      {/* Scrollama Steps */}
-      <ScrollamaContainer
-        setActiveIndex={setActiveIndex}
-        sections={sections}
-      ></ScrollamaContainer>
     </div>
   );
 }
