@@ -1,10 +1,10 @@
 import styles from "./App.module.css";
 import Background from "./components/Background";
-import Content from "./components/Content";
+// import Content from "./components/Content";
 import Timeline from "./components/TimeLine";
-import Draggable from "./components/Draggable";
-import { useEffect, useState, useRef } from "react";
-import { Scrollama, Step } from "react-scrollama";
+// import Draggable from "./components/Draggable";
+import { useEffect, useState } from "react";
+// import { Scrollama, Step } from "react-scrollama";
 import ScrollamaContainer from "./components/ScrollamaContainer";
 
 const sections = [
@@ -23,31 +23,22 @@ const sections = [
     label: "2019",
     background: { type: "image", src: "./assets/slider-2001.png", play: false },
   },
+  {
+    id: "2022",
+    label: "2022",
+    background: {},
+  },
 ];
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeSection, setActiveSection] = useState("2004");
-  // const sectionRefs = useRef([]);
-  const [background, setBackground] = useState(sections[0].background);
-
-  useEffect(() => {
-    if (activeIndex !== -1 && sections[activeIndex].id !== activeSection) {
-      setActiveSection(sections[activeIndex].id);
-      setBackground(sections[activeIndex].background);
-    }
-  }, [activeIndex, activeSection]);
 
   return (
     <div className={styles.app}>
-      <Background
-        sections={sections}
-        activeSection={activeSection}
-        background={background}
-      />
+      <Background sections={sections} activeIndex={activeIndex} />
       {/* <Content sections={sections} sectionRefs={sectionRefs} /> */}
 
-      <Timeline sections={sections} activeSection={activeSection} />
+      <Timeline sections={sections} activeIndex={activeIndex} />
 
       <div
         style={{
