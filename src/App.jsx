@@ -1,9 +1,9 @@
+import { useEffect, useState, useRef } from "react";
 import styles from "./App.module.css";
 import Background from "./components/Background";
 // import Content from "./components/Content";
 import Timeline from "./components/TimeLine";
 // import Draggable from "./components/Draggable";
-import { useEffect, useState } from "react";
 // import { Scrollama, Step } from "react-scrollama";
 import ScrollamaContainer from "./components/ScrollamaContainer";
 
@@ -26,17 +26,27 @@ const sections = [
   {
     id: "2022",
     label: "2022",
-    background: {},
+    background: { type: "video", src: "./assets/ice-output.mp4", play: false },
+  },
+  {
+    id: "2024",
+    label: "2024",
+    background: { type: "image", src: "./assets/slider-2001.png", play: false },
   },
 ];
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const openingAnimationRef = useRef(null);
+
   return (
     <div className={styles.app}>
-      <Background sections={sections} activeIndex={activeIndex} />
-      {/* <Content sections={sections} sectionRefs={sectionRefs} /> */}
+      <Background
+        sections={sections}
+        activeIndex={activeIndex}
+        openingAnimationRef={openingAnimationRef}
+      />
 
       <Timeline sections={sections} activeIndex={activeIndex} />
 
@@ -58,8 +68,10 @@ function App() {
 
       {/* Scrollama Steps */}
       <ScrollamaContainer
+        activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
         sections={sections}
+        openingAnimationRef={openingAnimationRef}
       ></ScrollamaContainer>
     </div>
   );

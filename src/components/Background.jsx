@@ -3,7 +3,7 @@ import styles from "./Background.module.css";
 import BackgroundVideo from "./BackgroundVideo";
 import BackgroundImage from "./BackgroundImage";
 
-function Background({ sections, activeIndex }) {
+function Background({ sections, activeIndex, openingAnimationRef }) {
   return (
     <div className={styles.backgroundLayer}>
       {/* <BackgroundVideo
@@ -38,6 +38,7 @@ function Background({ sections, activeIndex }) {
                 // section.id === activeSection ? styles.active : ""
                 idx === activeIndex ? styles.active : ""
               }`}
+              videoRef={idx === 3 ? openingAnimationRef : null}
             />
           );
         } else {
