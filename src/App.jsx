@@ -9,6 +9,11 @@ import ScrollamaContainer from "./components/ScrollamaContainer";
 
 const sections = [
   {
+    id: "00",
+    label: "opening animation",
+    background: { type: "video", src: "./assets/ice-output.mp4", play: false },
+  },
+  {
     id: "2004",
     label: "2004",
     background: { type: "video", src: "./assets/time-lapse.mp4", play: false },
@@ -21,7 +26,7 @@ const sections = [
   {
     id: "2019",
     label: "2019",
-    background: { type: "image", src: "./assets/slider-2001.png", play: false },
+    background: { type: "fill", src: "#242424", play: false },
   },
   {
     id: "2022",

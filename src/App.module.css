@@ -11,3 +11,15 @@
   /* padding: 20px; */
   /* position: fixed; */
 }
+
+body {
+  font-size: 18px; /* Base size */
+  line-height: 1.8rem;
+  font-family: "Merriweather", serif;
+}
+
+p {
+  font-size: 1.1rem;
+  text-wrap: pretty;
+  /* text-wrap: balance; */
+}

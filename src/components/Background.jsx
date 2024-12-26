@@ -38,10 +38,10 @@ function Background({ sections, activeIndex, openingAnimationRef }) {
                 // section.id === activeSection ? styles.active : ""
                 idx === activeIndex ? styles.active : ""
               }`}
-              videoRef={idx === 3 ? openingAnimationRef : null}
+              videoRef={idx === 0 ? openingAnimationRef : null}
             />
           );
-        } else {
+        } else if (section.background.type === "image") {
           return (
             <BackgroundImage
               key={section.id}
@@ -51,6 +51,8 @@ function Background({ sections, activeIndex, openingAnimationRef }) {
               }`}
             />
           );
+        } else {
+          return;
         }
       })}
     </div>
