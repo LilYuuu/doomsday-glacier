@@ -9,53 +9,61 @@ gsap.registerPlugin(ScrollTrigger);
 function VideoScrubber({ videoRef, contentContainerHeight, children }) {
   useEffect(() => {
     const video = videoRef.current;
-    // console.log(video);
 
-    // Ensure the video is loaded before manipulating its playback
     const handleVideoMetadata = () => {
       if (video) {
         const videoDuration = video.duration;
+        const frameRate = 30; // Adjust to your video's actual frame rate
+        const totalFrames = Math.round(videoDuration * frameRate);
 
-        // Create GSAP timeline with ScrollTrigger
         const tl = gsap.timeline({
-          defaults: { duration: 1 },
           scrollTrigger: {
-            trigger: ".scroll-content", // The container of the video
-            start: "top top", // Trigger when the top of the container hits the top of the viewport
-            end: "bottom+=1 bottom", // Trigger when the bottom of the container hits the bottom of the viewport
-            scrub: true, // Scrub the scroll position to control the animation smoothly
-            markers: true, // Optional: to see the start and end markers of ScrollTrigger (for debugging)
+            trigger: ".scroll-content",
+            start: "top top",
+            end: "bottom+=1 bottom",
+            scrub: true,
+            markers: true,
+            // onUpdate: (self) => {
+            //   console.log("Scroll Progress:", self.progress); // Dynamically log the progress
+            // },
           },
         });
 
-        // Animate the video playback based on scroll position
-        tl.fromTo(
-          video,
-          { currentTime: 0 }, // Start at the beginning of the video
+        // Access the ScrollTrigger instance
+        // const scrollTriggerInstance = tl.scrollTrigger;
+
+        // Log the progress
+        // console.log(scrollTriggerInstance.progress);
+
+        // Map scroll to frame numbers
+        tl.to(
+          {},
           {
-            currentTime: videoDuration || 1,
+            progress: 1,
             onUpdate: () => {
-              // Ensure the video doesn't exceed its duration
-              if (video.currentTime >= videoDuration) {
-                video.currentTime = videoDuration; // Stay just under the max duration
+              const scrollProgress = tl.scrollTrigger.progress;
+              const currentFrame = Math.round(scrollProgress * totalFrames);
+              const currentTime = currentFrame / frameRate;
+
+              // Update the video time without skipping frames
+              if (video.currentTime !== currentTime) {
+                video.currentTime = currentTime;
               }
-            }, // End at the video's duration
+            },
           }
         );
       }
     };
 
-    // Add event listener to handle video metadata load
     if (video.readyState >= 1) {
       handleVideoMetadata();
     } else {
       video.addEventListener("loadedmetadata", handleVideoMetadata);
     }
 
-    // Cleanup event listener on component unmount
     return () => {
       video.removeEventListener("loadedmetadata", handleVideoMetadata);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Kill any active ScrollTriggers
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 

@@ -30,13 +30,26 @@ const sections = [
   },
   {
     id: "2022",
-    label: "2022",
+    label: "melting factors",
     background: { type: "video", src: "./assets/ice-output.mp4", play: false },
   },
   {
     id: "2024",
-    label: "2024",
-    background: { type: "image", src: "./assets/slider-2001.png", play: false },
+    label: "icefin research",
+    background: {
+      type: "video",
+      src: "./assets/icefin-bg-output.mp4",
+      play: true,
+    },
+  },
+  {
+    id: "2025",
+    label: "icefin through borehole",
+    background: {
+      type: "video",
+      src: "./assets/icefin-underwater-output.mp4",
+      play: true,
+    },
   },
 ];
 

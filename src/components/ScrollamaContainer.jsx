@@ -32,11 +32,11 @@ function ScrollamaContainer({
           <div
             id={sections[0].id}
             className={styles.section}
-            style={{ height: "500vh" }}
+            style={{ height: "800vh" }}
           >
             <VideoScrubber
               videoRef={openingAnimationRef}
-              contentContainerHeight={"500vh"}
+              contentContainerHeight={"800vh"}
             >
               {
                 <>
@@ -45,15 +45,22 @@ function ScrollamaContainer({
                     redraw the world's coastlines.
                   </Textbox>
 
-                  <Textbox width={"30%"} viewportPosition={150}>
+                  <Textbox width={"30%"} viewportPosition={400}>
                     Antarctica—a continent of ice—holds 90% of Earth's frozen
                     water, a staggering 30 million cubic kilometers of ice.
                   </Textbox>
 
-                  <Textbox width={"30%"} viewportPosition={350}>
+                  <Textbox width={"30%"} viewportPosition={500}>
                     At the heart of this frozen realm lies the Thwaites Glacier,
                     a colossal river of ice stretching 120 kilometers wide—the
                     widest glacier in Antarctica.
+                  </Textbox>
+
+                  <Textbox width={"30%"} viewportPosition={650}>
+                    The Thwaites Glacier covers an area nearly the size of Great
+                    Britain and larger than the state of Florida. Its massive
+                    scale makes it a key player in Antarctica's ice sheet
+                    dynamics and global sea level rise.
                   </Textbox>
                 </>
               }
@@ -128,7 +135,7 @@ function ScrollamaContainer({
             </Textbox>
           </div>
         </Step>
-        <Step data={3}>
+        {/* <Step data={3}>
           <div id={sections[3].id} className={styles.section}>
             <Textbox width={"30%"}>
               In 2001, this floating extension of Thwaites stood as a solid,
@@ -140,12 +147,28 @@ function ScrollamaContainer({
               Antarctica.
             </Textbox>
           </div>
-        </Step>
+        </Step> */}
         <Step data={4}>
           <div id={sections[4].id} className={styles.section}>
             <div className={styles.textOverlay}>
               <h2>{sections[4].label}</h2>
               <p>This is content for {sections[4].label}.</p>
+            </div>
+          </div>
+        </Step>
+        <Step data={5}>
+          <div id={sections[5].id} className={styles.section}>
+            <div className={styles.textOverlay}>
+              <h2>{sections[5].label}</h2>
+              <p>This is content for {sections[5].label}.</p>
+            </div>
+          </div>
+        </Step>
+        <Step data={6}>
+          <div id={sections[6].id} className={styles.section}>
+            <div className={styles.textOverlay}>
+              <h2>{sections[6].label}</h2>
+              <p>This is content for {sections[6].label}.</p>
             </div>
           </div>
         </Step>
