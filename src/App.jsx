@@ -14,6 +14,15 @@ const sections = [
     background: { type: "video", src: "./assets/ice-output.mp4", play: false },
   },
   {
+    id: "01",
+    label: "glacier structure",
+    background: {
+      type: "video",
+      src: "./assets/structure-output.mp4",
+      play: false,
+    },
+  },
+  {
     id: "2004",
     label: "2004",
     background: { type: "video", src: "./assets/time-lapse.mp4", play: false },
@@ -57,6 +66,7 @@ function App() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const openingAnimationRef = useRef(null);
+  const structureRef = useRef(null);
 
   return (
     <div className={styles.app}>
@@ -64,6 +74,7 @@ function App() {
         sections={sections}
         activeIndex={activeIndex}
         openingAnimationRef={openingAnimationRef}
+        structureRef={structureRef}
       />
 
       <Timeline sections={sections} activeIndex={activeIndex} />
@@ -90,6 +101,7 @@ function App() {
         setActiveIndex={setActiveIndex}
         sections={sections}
         openingAnimationRef={openingAnimationRef}
+        structureRef={structureRef}
       ></ScrollamaContainer>
     </div>
   );

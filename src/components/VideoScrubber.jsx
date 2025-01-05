@@ -6,9 +6,10 @@ import Textbox from "./Textbox";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function VideoScrubber({ videoRef, contentContainerHeight, children }) {
+function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
   useEffect(() => {
     const video = videoRef.current;
+    const scrubberProgress = { value: 0 };
 
     const handleVideoMetadata = () => {
       if (video) {
@@ -18,9 +19,9 @@ function VideoScrubber({ videoRef, contentContainerHeight, children }) {
 
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: ".scroll-content",
+            trigger: `.scroll-content-${id}`,
             start: "top top",
-            end: "bottom+=1 bottom",
+            end: "bottom+=25% bottom",
             scrub: true,
             markers: true,
             // onUpdate: (self) => {
@@ -29,6 +30,8 @@ function VideoScrubber({ videoRef, contentContainerHeight, children }) {
           },
         });
 
+        console.log(tl);
+
         // Access the ScrollTrigger instance
         // const scrollTriggerInstance = tl.scrollTrigger;
 
@@ -36,23 +39,27 @@ function VideoScrubber({ videoRef, contentContainerHeight, children }) {
         // console.log(scrollTriggerInstance.progress);
 
         // Map scroll to frame numbers
-        tl.to(
-          {},
-          {
-            progress: 1,
-            onUpdate: () => {
-              const scrollProgress = tl.scrollTrigger.progress;
-              const currentFrame = Math.round(scrollProgress * totalFrames);
-              const currentTime = currentFrame / frameRate;
+        tl.to(scrubberProgress, {
+          value: 1,
+          onUpdate: () => {
+            const scrollProgress = scrubberProgress.value;
+            const currentFrame = Math.round(scrollProgress * totalFrames);
+            const currentTime = currentFrame / frameRate;
+            console.log(
+              "Progress:",
+              scrollProgress,
+              "CurrentTime:",
+              currentTime
+            );
 
-              // Update the video time without skipping frames
-              if (video.currentTime !== currentTime) {
-                video.currentTime = currentTime;
-              }
-            },
-          }
-        );
+            // Update the video time without skipping frames
+            if (video.currentTime !== currentTime) {
+              video.currentTime = currentTime;
+            }
+          },
+        });
       }
+      ScrollTrigger.refresh();
     };
 
     if (video.readyState >= 1) {
@@ -64,12 +71,13 @@ function VideoScrubber({ videoRef, contentContainerHeight, children }) {
     return () => {
       video.removeEventListener("loadedmetadata", handleVideoMetadata);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      scrubberProgress.value = 0;
     };
-  }, []);
+  }, [videoRef]);
 
   return (
     <div
-      className="scroll-content"
+      className={`scroll-content-${id}`}
       style={{
         height:
           contentContainerHeight /* Adjust the height of the content to make it scrollable */,

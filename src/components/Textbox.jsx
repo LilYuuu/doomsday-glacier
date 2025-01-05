@@ -1,5 +1,5 @@
 function Textbox(props) {
-  const { children, viewportPosition, width } = props;
+  const { children, xPosition, yPosition, width } = props;
   return (
     <div
       style={{
@@ -11,7 +11,8 @@ function Textbox(props) {
         minWidth: "30vw",
         marginLeft: "4rem",
         padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-        top: `${viewportPosition}vh`,
+        top: `${yPosition}vh`,
+        left: `${xPosition}vw`,
         zIndex: "50",
       }}
     >
