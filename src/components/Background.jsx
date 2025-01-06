@@ -10,6 +10,7 @@ function Background({
   activeIndex,
   openingAnimationRef,
   structureRef,
+  factorsRef,
 }) {
   // const sectionRef = useRef(null);
 
@@ -52,6 +53,8 @@ function Background({
                   ? openingAnimationRef
                   : idx === 1
                   ? structureRef
+                  : idx === 5
+                  ? factorsRef
                   : null
               }
             />

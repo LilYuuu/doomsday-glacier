@@ -48,12 +48,12 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
 
             ///******* FOR DEBUG *******///
 
-            // console.log(
-            //   "Progress:",
-            //   scrollProgress,
-            //   "CurrentTime:",
-            //   currentTime
-            // );
+            console.log(
+              "Progress:",
+              scrollProgress,
+              "CurrentTime:",
+              currentTime
+            );
 
             // Update the video time without skipping frames
             if (video.currentTime !== currentTime) {

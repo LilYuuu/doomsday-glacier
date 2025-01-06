@@ -13,6 +13,7 @@ function ScrollamaContainer({
   sections,
   openingAnimationRef,
   structureRef,
+  factorsRef,
 }) {
   const onStepEnter = ({ data }) => {
     setActiveIndex(data);
@@ -85,7 +86,7 @@ function ScrollamaContainer({
               id={"structure"}
             >
               <>
-                <Textbox width={"30%"} xPosition={3} yPosition={50}>
+                <Textbox width={"30%"} xPosition={55} yPosition={50}>
                   To understand the rapid changes happening with Thwaites
                   Glacier, we need to look beneath its surface.
                   <br />
@@ -103,7 +104,7 @@ function ScrollamaContainer({
                   touches the seafloor beneath it.
                 </Textbox>
 
-                <Textbox width={"30%"} xPosition={3} yPosition={225}>
+                <Textbox width={"30%"} xPosition={55} yPosition={225}>
                   Beneath the ice, Thwaites Glacier maintains its grip on
                   underwater mountains and ridges on the seafloor. This grip
                   acts like an anchor, helping to stabilize the massive glacier
@@ -111,23 +112,26 @@ function ScrollamaContainer({
                 </Textbox>
 
                 <Textbox width={"30%"} xPosition={55} yPosition={400}>
-                  Beneath the ice, Thwaites Glacier maintains its grip on
-                  underwater mountains and ridges on the seafloor. This grip
-                  acts like an anchor, helping to stabilize the massive glacier
-                  and slow its movement toward the sea.
+                  The grounding line marks the critical boundary where the
+                  glacier transitions from resting on land to floating on the
+                  ocean. This line acts as a threshold—behind it, the glacier
+                  remains grounded on the seafloor; beyond it, the ice floats
+                  freely on the water.
                 </Textbox>
               </>
             </VideoScrubber>
           </div>
         </Step>
 
-        {/* Timeline Begins */}
+        {/*********** TIMELINE BEGINS ***********/}
+
+        {/* 2004 */}
         <Step data={2}>
           <div
             id={sections[2].id}
             className={styles.section}
             style={{
-              height: "100vh",
+              height: "200vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center", // Centers content vertically
@@ -137,9 +141,6 @@ function ScrollamaContainer({
             <div
               style={{
                 width: "35vw",
-                // backgroundColor: "rgba(0, 0, 0, .5)",
-                // border: "solid red 1px",
-                // borderRadius: "0.5rem",
                 position: "relative",
                 minWidth: "30vw",
                 marginLeft: "4rem",
@@ -151,7 +152,7 @@ function ScrollamaContainer({
             >
               <hr />
 
-              <AnimatedHeading>
+              <AnimatedHeading type={"h2"}>
                 How Did Thwaites Glacier Begin to Fall Apart?
               </AnimatedHeading>
               <br />
@@ -175,16 +176,24 @@ function ScrollamaContainer({
           </div>
         </Step>
 
+        {/* 2014 */}
         <Step data={3}>
-          <div id={sections[3].id} className={styles.section}>
-            <Textbox width={"30%"} yPosition={75}>
+          <div
+            id={sections[3].id}
+            className={styles.section}
+            style={{
+              height: "400vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              // justifyContent: "center", // Centers content horizontally
+            }}
+          >
+            <Textbox width={"30%"} yPosition={50}>
               By 2014, the transformation became starkly visible from space.
             </Textbox>
-          </div>
-        </Step>
-        <Step data={3}>
-          <div id={sections[3].id} className={styles.section}>
-            <Textbox width={"30%"}>
+
+            <Textbox width={"30%"} yPosition={150}>
               Satellite imagery captured a dramatic performance of ice in
               motion—the massive ice tongue of Thwaites Glacier, a floating
               extension of the glacier stretching into the Amundsen Sea, began
@@ -192,11 +201,8 @@ function ScrollamaContainer({
               losing its support pillars, the ice tongue started to splinter and
               break apart.
             </Textbox>
-          </div>
-        </Step>
-        <Step data={3}>
-          <div id={sections[3].id} className={styles.section}>
-            <Textbox width={"30%"}>
+
+            <Textbox width={"30%"} yPosition={250}>
               This time-lapse reveals nature's raw power at work—years
               compressed into moments, showing how warming waters relentlessly
               carved away at the glacier's frozen architecture, weakening its
@@ -204,49 +210,106 @@ function ScrollamaContainer({
             </Textbox>
           </div>
         </Step>
+
+        {/* 2019 */}
         <Step data={4}>
-          <div id={sections[4].id} className={styles.section}>
+          <div
+            id={sections[4].id}
+            className={styles.section}
+            style={{
+              height: "200vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              // justifyContent: "center", // Centers content horizontally
+            }}
+          >
+            <div
+              style={{
+                top: "50vh",
+                height: "50vh",
+              }}
+            />
             <Draggable />
-            <br />
-            <br />
-            <Textbox width={"30%"}>
+            <AnimatedHeading type={"p"}>
               What took nature millennia to build vanished in less than two
               decades. By 2019, the massive ice tongue that once stretched
               proudly into the Amundsen Sea had virtually disappeared—a profound
               transformation you can witness by sliding between these two
               satellite images.
-            </Textbox>
+            </AnimatedHeading>
           </div>
         </Step>
-        {/* <Step data={3}>
-          <div id={sections[3].id} className={styles.section}>
-            <Textbox width={"30%"}>
-              In 2001, this floating extension of Thwaites stood as a solid,
-              unified structure. But by 2019, where that mighty ice tongue once
-              reached into the ocean, only fractured ice and open water
-              remained. This stark before-and-after comparison reveals more than
-              just a changing landscape—it shows us the rapid pace at which our
-              warming world can reshape even the most monumental features of
-              Antarctica.
-            </Textbox>
-          </div>
-        </Step> */}
+
+        {/* Melting Factors */}
         <Step data={5}>
-          <div id={sections[5].id} className={styles.section}>
-            <div className={styles.textOverlay}>
-              <h2>{sections[5].label}</h2>
-              <p>This is content for {sections[5].label}.</p>
-            </div>
+          <div
+            id={sections[5].id}
+            className={styles.section}
+            style={{
+              height: "1000vh",
+            }}
+          >
+            <VideoScrubber
+              videoRef={factorsRef}
+              contentContainerHeight={"1000vh"}
+              id={"factors"}
+            >
+              {
+                <>
+                  <Textbox width={"30%"} xPosition={55} yPosition={50}>
+                    After witnessing these dramatic transformations, a crucial
+                    question emerges: What's driving these changes? Returning to
+                    our 3D model, we'll examine the three driving forces at
+                    work—each connected to a different part of the glacier's
+                    structure.
+                  </Textbox>
+
+                  <Textbox width={"30%"} xPosition={55} yPosition={150}>
+                    Warm ocean water is eating away at the Thwaites Glacier's
+                    ice tongue from below. As this floating extension of the
+                    glacier thins and weakens, it becomes more vulnerable to
+                    fracturing. Like removing a door from its hinges, the loss
+                    of the ice tongue means there's less holding back the
+                    glacier's flow toward the sea.
+                  </Textbox>
+
+                  <Textbox width={"30%"} xPosition={55} yPosition={350}>
+                    As the glacier's base continues to melt, it loses its vital
+                    grip on the underwater mountains and ridges below. Without
+                    these natural anchors, the glacier's movement toward the sea
+                    accelerates.
+                  </Textbox>
+
+                  <Textbox width={"30%"} xPosition={55} yPosition={650}>
+                    The grounding line—where the glacier lifts off the seafloor
+                    and begins to float—is steadily retreating inland. As warm
+                    water penetrates deeper beneath the glacier, it forces this
+                    critical boundary to withdraw farther and farther. Each
+                    retreat of the grounding line triggers a cascade effect,
+                    allowing more ice to float free and accelerating the
+                    glacier's march toward the sea.
+                  </Textbox>
+                </>
+              }
+            </VideoScrubber>
           </div>
         </Step>
+
+        {/* <div style={{ height: "100vh" }}></div> */}
+
         <Step data={6}>
           <div id={sections[6].id} className={styles.section}>
-            <div className={styles.textOverlay}>
-              <h2>{sections[6].label}</h2>
-              <p>This is content for {sections[6].label}.</p>
-            </div>
+            {/* <AnimatedHeading type={"p"}>
+              What took nature millennia to build vanished in less than two
+              decades. By 2019, the massive ice tongue that once stretched
+              proudly into the Amundsen Sea had virtually disappeared—a profound
+              transformation you can witness by sliding between these two
+              satellite images.
+            </AnimatedHeading> */}
           </div>
         </Step>
+
         <Step data={7}>
           <div id={sections[7].id} className={styles.section}>
             <div className={styles.textOverlay}>

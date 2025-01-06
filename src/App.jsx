@@ -44,7 +44,11 @@ const sections = [
   {
     id: "2022",
     label: "melting factors",
-    background: { type: "video", src: "./assets/ice-output.mp4", play: false },
+    background: {
+      type: "video",
+      src: "./assets/factors-output.mp4",
+      play: false,
+    },
   },
   {
     id: "2024",
@@ -71,6 +75,7 @@ function App() {
 
   const openingAnimationRef = useRef(null);
   const structureRef = useRef(null);
+  const factorsRef = useRef(null);
 
   return (
     <div className={styles.app}>
@@ -79,6 +84,7 @@ function App() {
         activeIndex={activeIndex}
         openingAnimationRef={openingAnimationRef}
         structureRef={structureRef}
+        factorsRef={factorsRef}
       />
 
       <Timeline sections={sections} activeIndex={activeIndex} />
@@ -106,6 +112,7 @@ function App() {
         sections={sections}
         openingAnimationRef={openingAnimationRef}
         structureRef={structureRef}
+        factorsRef={factorsRef}
       ></ScrollamaContainer>
     </div>
   );

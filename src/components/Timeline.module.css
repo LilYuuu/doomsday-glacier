@@ -12,7 +12,7 @@
 }
 
 .timelineItem {
-  margin: 40px;
+  margin: 20px 40px;
   /* margin-top: 40px; */
   position: relative;
   display: flex;
