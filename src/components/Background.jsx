@@ -1,7 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef, useState } from "react";
 import styles from "./Background.module.css";
 import BackgroundVideo from "./BackgroundVideo";
 import BackgroundImage from "./BackgroundImage";
+import AnimatedHeading from "./AnimatedHeading";
 
 function Background({
   sections,
@@ -9,6 +11,8 @@ function Background({
   openingAnimationRef,
   structureRef,
 }) {
+  // const sectionRef = useRef(null);
+
   return (
     <div className={styles.backgroundLayer}>
       {/* <BackgroundVideo
@@ -62,8 +66,22 @@ function Background({
               }`}
             />
           );
-        } else {
-          return;
+        } else if (section.background.type === "fill") {
+          return (
+            <div
+              key={section.id}
+              className={`${styles.backgroundItem}  ${
+                idx === activeIndex ? styles.active : ""
+              }`}
+              style={{
+                backgroundColor: section.background.src,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center", // Centers content vertically
+                justifyContent: "center", // Centers content horizontally
+              }}
+            ></div>
+          );
         }
       })}
     </div>

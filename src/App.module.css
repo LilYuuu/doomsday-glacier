@@ -16,6 +16,11 @@ body {
   font-size: 18px; /* Base size */
   line-height: 1.8rem;
   font-family: "Merriweather", serif;
+  text-wrap: pretty;
+}
+
+h2 {
+  line-height: 2.4rem;
 }
 
 p {

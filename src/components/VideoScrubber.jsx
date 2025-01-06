@@ -23,14 +23,14 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
             start: "top top",
             end: "bottom+=25% bottom",
             scrub: true,
-            markers: true,
+            // markers: true,
             // onUpdate: (self) => {
             //   console.log("Scroll Progress:", self.progress); // Dynamically log the progress
             // },
           },
         });
 
-        console.log(tl);
+        // console.log(tl);
 
         // Access the ScrollTrigger instance
         // const scrollTriggerInstance = tl.scrollTrigger;
@@ -45,12 +45,15 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
             const scrollProgress = scrubberProgress.value;
             const currentFrame = Math.round(scrollProgress * totalFrames);
             const currentTime = currentFrame / frameRate;
-            console.log(
-              "Progress:",
-              scrollProgress,
-              "CurrentTime:",
-              currentTime
-            );
+
+            ///******* FOR DEBUG *******///
+
+            // console.log(
+            //   "Progress:",
+            //   scrollProgress,
+            //   "CurrentTime:",
+            //   currentTime
+            // );
 
             // Update the video time without skipping frames
             if (video.currentTime !== currentTime) {

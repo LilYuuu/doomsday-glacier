@@ -4,6 +4,7 @@ import styles from "./ScrollamaContainer.module.css";
 import Draggable from "./Draggable";
 import VideoScrubber from "./VideoScrubber";
 import Textbox from "./Textbox";
+import AnimatedHeading from "./AnimatedHeading";
 // import ScrollableVideoContainer from "./ScrollableVideoContainer";
 
 function ScrollamaContainer({
@@ -122,9 +123,39 @@ function ScrollamaContainer({
 
         {/* Timeline Begins */}
         <Step data={2}>
-          <div id={sections[2].id} className={styles.section}>
-            <>
-              <Textbox width={"30%"} yPosition={75}>
+          <div
+            id={sections[2].id}
+            className={styles.section}
+            style={{
+              height: "100vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "center", // Centers content horizontally
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                // backgroundColor: "rgba(0, 0, 0, .5)",
+                // border: "solid red 1px",
+                // borderRadius: "0.5rem",
+                position: "relative",
+                minWidth: "30vw",
+                marginLeft: "4rem",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                top: "20vh",
+                // left: `${xPosition}vw`,
+                zIndex: "50",
+              }}
+            >
+              <hr />
+
+              <AnimatedHeading>
+                How Did Thwaites Glacier Begin to Fall Apart?
+              </AnimatedHeading>
+              <br />
+              <p>
                 2004 marked a critical turning point.
                 <br />
                 <br />
@@ -139,18 +170,14 @@ function ScrollamaContainer({
                 ancient foundation started to weaken, setting the stage for what
                 scientists would later recognize as a dramatic acceleration in
                 its retreat.
-              </Textbox>
-            </>
-            {/* <div className={styles.textOverlay}>
-              <h2>{sections[1].label}</h2>
-              <p>This is content for {sections[1].label}.</p>
-            </div> */}
+              </p>
+            </div>
           </div>
         </Step>
 
         <Step data={3}>
           <div id={sections[3].id} className={styles.section}>
-            <Textbox width={"30%"}>
+            <Textbox width={"30%"} yPosition={75}>
               By 2014, the transformation became starkly visible from space.
             </Textbox>
           </div>

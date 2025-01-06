@@ -25,17 +25,21 @@ const sections = [
   {
     id: "2004",
     label: "2004",
-    background: { type: "video", src: "./assets/time-lapse.mp4", play: false },
+    background: { type: "fill", src: "#68757D", play: false },
   },
   {
     id: "2014",
     label: "2014",
-    background: { type: "video", src: "./assets/time-lapse.mp4", play: true },
+    background: {
+      type: "video",
+      src: "./assets/time-lapse-output.mp4",
+      play: true,
+    },
   },
   {
     id: "2019",
     label: "2019",
-    background: { type: "fill", src: "#242424", play: false },
+    background: { type: "fill", src: "#68757D", play: false },
   },
   {
     id: "2022",
