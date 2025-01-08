@@ -78,11 +78,11 @@ function ScrollamaContainer({
           <div
             id={sections[1].id}
             className={styles.section}
-            style={{ height: "600vh" }}
+            style={{ height: "700vh" }}
           >
             <VideoScrubber
               videoRef={structureRef}
-              contentContainerHeight={"600vh"}
+              contentContainerHeight={"700vh"}
               id={"structure"}
             >
               <>
@@ -104,7 +104,7 @@ function ScrollamaContainer({
                   touches the seafloor beneath it.
                 </Textbox>
 
-                <Textbox width={"30%"} xPosition={55} yPosition={225}>
+                <Textbox width={"30%"} xPosition={55} yPosition={275}>
                   Beneath the ice, Thwaites Glacier maintains its grip on
                   underwater mountains and ridges on the seafloor. This grip
                   acts like an anchor, helping to stabilize the massive glacier
@@ -217,7 +217,7 @@ function ScrollamaContainer({
             id={sections[4].id}
             className={styles.section}
             style={{
-              height: "200vh",
+              height: "150vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center", // Centers content vertically
@@ -247,12 +247,12 @@ function ScrollamaContainer({
             id={sections[5].id}
             className={styles.section}
             style={{
-              height: "1000vh",
+              height: "850vh",
             }}
           >
             <VideoScrubber
               videoRef={factorsRef}
-              contentContainerHeight={"1000vh"}
+              contentContainerHeight={"850vh"}
               id={"factors"}
             >
               {
@@ -274,14 +274,14 @@ function ScrollamaContainer({
                     glacier's flow toward the sea.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={350}>
+                  <Textbox width={"30%"} xPosition={55} yPosition={375}>
                     As the glacier's base continues to melt, it loses its vital
                     grip on the underwater mountains and ridges below. Without
                     these natural anchors, the glacier's movement toward the sea
                     accelerates.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={650}>
+                  <Textbox width={"30%"} xPosition={55} yPosition={500}>
                     The grounding line—where the glacier lifts off the seafloor
                     and begins to float—is steadily retreating inland. As warm
                     water penetrates deeper beneath the glacier, it forces this

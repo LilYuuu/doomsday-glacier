@@ -17,6 +17,8 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
         const frameRate = 30; // Adjust to your video's actual frame rate
         const totalFrames = Math.round(videoDuration * frameRate);
 
+        console.log(videoRef, videoDuration);
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: `.scroll-content-${id}`,
@@ -48,12 +50,12 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
 
             ///******* FOR DEBUG *******///
 
-            console.log(
-              "Progress:",
-              scrollProgress,
-              "CurrentTime:",
-              currentTime
-            );
+            // console.log(
+            //   "Progress:",
+            //   scrollProgress,
+            //   "CurrentTime:",
+            //   currentTime
+            // );
 
             // Update the video time without skipping frames
             if (video.currentTime !== currentTime) {
