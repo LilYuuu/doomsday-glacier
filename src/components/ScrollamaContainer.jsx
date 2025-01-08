@@ -5,6 +5,7 @@ import Draggable from "./Draggable";
 import VideoScrubber from "./VideoScrubber";
 import Textbox from "./Textbox";
 import AnimatedHeading from "./AnimatedHeading";
+import ImageContainer from "./ImageContainer";
 // import ScrollableVideoContainer from "./ScrollableVideoContainer";
 
 function ScrollamaContainer({
@@ -131,21 +132,21 @@ function ScrollamaContainer({
             id={sections[2].id}
             className={styles.section}
             style={{
-              height: "200vh",
+              height: "150vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center", // Centers content vertically
-              justifyContent: "center", // Centers content horizontally
+              // justifyContent: "center", // Centers content horizontally
             }}
           >
             <div
               style={{
                 width: "35vw",
                 position: "relative",
-                minWidth: "30vw",
-                marginLeft: "4rem",
+                // minWidth: "30vw",
+                // marginLeft: "4rem",
                 padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-                top: "20vh",
+                top: "50vh",
                 // left: `${xPosition}vw`,
                 zIndex: "50",
               }}
@@ -299,22 +300,191 @@ function ScrollamaContainer({
         {/* <div style={{ height: "100vh" }}></div> */}
 
         <Step data={6}>
-          <div id={sections[6].id} className={styles.section}>
-            {/* <AnimatedHeading type={"p"}>
-              What took nature millennia to build vanished in less than two
-              decades. By 2019, the massive ice tongue that once stretched
-              proudly into the Amundsen Sea had virtually disappeared—a profound
-              transformation you can witness by sliding between these two
-              satellite images.
-            </AnimatedHeading> */}
+          <div
+            id={sections[6].id}
+            className={styles.section}
+            style={{
+              height: "125vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <hr />
+
+              <AnimatedHeading type={"h2"}>
+                Drilling into the Unknown: Unexpected Findings Beneath Thwaites
+              </AnimatedHeading>
+              <br />
+              <p>
+                A breakthrough in late 2019 brought scientists closer than ever
+                to Thwaites' hidden underside. British Antarctic Survey
+                scientist Peter Davis and his team drilled through 600 meters of
+                ice to reach the ocean waters near the glacier's grounding line.
+                Using this borehole—located just two kilometers from where the
+                glacier lifts off the seafloor—they gathered critical data about
+                the glacier's interaction with ocean waters.
+                <br />
+                <br />
+                The findings were surprising. Over nine months, while the waters
+                grew warmer and saltier, the ice was melting at a rate of 2-5
+                meters per year—slower than scientists had predicted in their
+                models. This discovery revealed just how complex the dynamics
+                beneath Thwaites really are.
+              </p>
+            </div>
+
+            <ImageContainer
+              src={"./assets/hot-water-drilling.jpeg"}
+              caption={`BAS team deploying the hot water drill in Thwaites Glacier including Paul Anker, Keith Nicolls, James Smith, and Peter Davis. Icefin - ITGC, Schmidt.`}
+            />
           </div>
         </Step>
 
         <Step data={7}>
-          <div id={sections[7].id} className={styles.section}>
-            <div className={styles.textOverlay}>
-              <h2>{sections[7].label}</h2>
-              <p>This is content for {sections[7].label}.</p>
+          <div
+            id={sections[7].id}
+            className={styles.section}
+            style={{
+              height: "75vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0 0 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <hr />
+              <AnimatedHeading type={"h2"}>
+                Project MELT: Eyes Under the Ice
+              </AnimatedHeading>
+              <br />
+              <p>
+                These groundbreaking measurements were part of an ambitious
+                scientific endeavor: the MELT project. As part of the
+                International Thwaites Glacier Collaboration—one of the largest
+                international field campaigns ever undertaken in Antarctica—MELT
+                brings together scientists from five universities and the
+                British Antarctic Survey in a joint U.S.-U.K. effort to
+                understand how warm waters are affecting Thwaites Glacier.
+                {/* <br />
+                <br />
+                The project's approach is as innovative as it is comprehensive.
+                Scientists drill holes through 600 meters of solid ice using hot
+                water drills—creating pathways to deploy their sophisticated
+                instruments. Through these boreholes, they lower Icefin, a
+                state-of-the-art underwater robot equipped with cameras and
+                sensors, to explore the mysterious cavity beneath the glacier.
+                This remote-controlled vehicle acts as scientists' eyes and ears
+                under the ice, gathering crucial data about water temperature,
+                salinity, and currents.
+                <br />
+                <br />
+                Above the ice, researchers use specialized radar systems to
+                measure how quickly the glacier is melting from below, while
+                airborne surveys map the complex network of channels through
+                which warm water might be reaching the glacier's vulnerable
+                underbelly. Together, these measurements help scientists better
+                predict how Thwaites might contribute to future sea level rise. */}
+              </p>
+            </div>
+          </div>
+        </Step>
+
+        <Step data={8}>
+          <div
+            id={sections[8].id}
+            className={styles.section}
+            style={{
+              height: "75vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0 0 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <p>
+                The project's approach is as innovative as it is comprehensive.
+                Scientists drill holes through 600 meters of solid ice using hot
+                water drills—creating pathways to deploy their sophisticated
+                instruments. Through these boreholes, they lower Icefin, a
+                state-of-the-art underwater robot equipped with cameras and
+                sensors, to explore the mysterious cavity beneath the glacier.
+                This remote-controlled vehicle acts as scientists' eyes and ears
+                under the ice, gathering crucial data about water temperature,
+                salinity, and currents.
+              </p>
+            </div>
+          </div>
+        </Step>
+
+        <Step data={9}>
+          <div
+            id={sections[9].id}
+            className={styles.section}
+            style={{
+              height: "75vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0 0 0",
+            }}
+          >
+            <ImageContainer
+              src={"./assets/icefin-deployment.jpg"}
+              caption={`Icefin deployment at Thwaites Glacier, January 2020. Icefin - ITGC, Dichek.`}
+            />
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <p>
+                The project's approach is as innovative as it is comprehensive.
+                Scientists drill holes through 600 meters of solid ice using hot
+                water drills—creating pathways to deploy their sophisticated
+                instruments. Through these boreholes, they lower Icefin, a
+                state-of-the-art underwater robot equipped with cameras and
+                sensors, to explore the mysterious cavity beneath the glacier.
+                This remote-controlled vehicle acts as scientists' eyes and ears
+                under the ice, gathering crucial data about water temperature,
+                salinity, and currents.
+              </p>
             </div>
           </div>
         </Step>

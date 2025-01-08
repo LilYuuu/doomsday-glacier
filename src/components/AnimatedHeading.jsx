@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function AnimatedHeading({ type, children }) {
+function AnimatedHeading({ type, yPosition, children }) {
   const headingRef = useRef(null);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function AnimatedHeading({ type, children }) {
         position: "relative",
         marginLeft: "4rem",
         padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-        // top: "20vh",
+        top: `${yPosition}vh`,
         // left: `${xPosition}vw`,
         zIndex: "50",
       }}

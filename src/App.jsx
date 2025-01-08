@@ -60,12 +60,30 @@ const sections = [
     },
   },
   {
-    id: "2025",
-    label: "icefin through borehole",
+    id: "07",
+    label: "Project MELT",
+    background: {
+      type: "image",
+      src: "./assets/bg-borehole-drilling.png",
+      play: false,
+    },
+  },
+  {
+    id: "08",
+    label: "Icefin",
     background: {
       type: "video",
-      src: "./assets/icefin-underwater-output.mp4",
+      src: "./assets/icefin-bg-output.mp4",
       play: true,
+    },
+  },
+  {
+    id: "09",
+    label: "Melting rate calculation",
+    background: {
+      type: "fill",
+      src: "#68757D",
+      play: false,
     },
   },
 ];
