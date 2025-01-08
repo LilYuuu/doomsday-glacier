@@ -23,12 +23,12 @@ const sections = [
     },
   },
   {
-    id: "2004",
+    id: "02",
     label: "2004",
     background: { type: "fill", src: "#68757D", play: false },
   },
   {
-    id: "2014",
+    id: "03",
     label: "2014",
     background: {
       type: "video",
@@ -37,12 +37,12 @@ const sections = [
     },
   },
   {
-    id: "2019",
+    id: "04",
     label: "2019",
     background: { type: "fill", src: "#68757D", play: false },
   },
   {
-    id: "2022",
+    id: "05",
     label: "melting factors",
     background: {
       type: "video",
@@ -51,12 +51,12 @@ const sections = [
     },
   },
   {
-    id: "2024",
-    label: "icefin research",
+    id: "06",
+    label: "Late 2019",
     background: {
-      type: "video",
-      src: "./assets/icefin-bg-output.mp4",
-      play: true,
+      type: "fill",
+      src: "#68757D",
+      play: false,
     },
   },
   {

@@ -274,7 +274,7 @@ function ScrollamaContainer({
                     glacier's flow toward the sea.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={375}>
+                  <Textbox width={"30%"} xPosition={55} yPosition={300}>
                     As the glacier's base continues to melt, it loses its vital
                     grip on the underwater mountains and ridges below. Without
                     these natural anchors, the glacier's movement toward the sea
