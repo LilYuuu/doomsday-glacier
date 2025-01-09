@@ -166,7 +166,7 @@ function App() {
         visible={showTimeline}
       />
 
-      <div
+      {/* <div
         style={{
           position: "fixed",
           top: "10%",
@@ -180,7 +180,7 @@ function App() {
         }}
       >
         Current Step: {activeIndex !== null ? activeIndex + 1 : "None"}
-      </div>
+      </div> */}
 
       {/* Scrollama Steps */}
       <ScrollamaContainer
