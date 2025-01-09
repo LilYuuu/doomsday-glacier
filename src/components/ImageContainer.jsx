@@ -1,8 +1,8 @@
-function ImageContainer({ src, caption }) {
+function ImageContainer({ src, caption, credit, width }) {
   return (
     <div
       style={{
-        width: "50vw",
+        width: width || "50vw",
         position: "relative",
         padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
         zIndex: "50",
@@ -13,7 +13,20 @@ function ImageContainer({ src, caption }) {
       }}
     >
       <img src={src} style={{ width: "100%", height: "auto" }}></img>
-      <p>{caption}</p>
+      <p
+        style={{
+          textAlign: "left",
+          width: "100%",
+          fontFamily: "Roboto",
+          fontSize: "0.95rem",
+          fontWeight: "500",
+          lineHeight: "1.4rem",
+        }}
+      >
+        {caption}
+
+        <span style={{ fontSize: "0.88rem", color: "#C9C9C9" }}>{credit}</span>
+      </p>
     </div>
   );
 }

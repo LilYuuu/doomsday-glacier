@@ -19,3 +19,31 @@
   position: absolute;
   z-index: 5;
 }
+
+.title {
+  width: 35vw;
+  position: absolute;
+  /* color: #001355; */
+  color: white;
+
+  margin-left: 4rem;
+  padding: 1rem 3rem;
+  top: 60%;
+  transform: translateY(-60%);
+  /* left: 50%;
+  transform: translateX(-50%); */
+  z-index: 50;
+}
+
+.headline {
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  /* padding: 20rem 0; */
+}
+
+.author {
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 1rem;
+}

@@ -22,7 +22,7 @@ function ScrollamaContainer({
 
   return (
     <>
-      <Scrollama offset={0.5} onStepEnter={onStepEnter} debug>
+      <Scrollama offset={0.5} onStepEnter={onStepEnter} debug={false}>
         {/* <Step data={0}>
           <div id={sections[0].id} className={styles.section}>
             <div className={styles.textOverlay}>
@@ -46,17 +46,32 @@ function ScrollamaContainer({
             >
               {
                 <>
-                  <Textbox width={"30%"} xPosition={3} yPosition={50}>
+                  <div className={styles.title}>
+                    <hr />
+                    <br />
+                    <span className={styles.headline}>
+                      The Doomsday Glacier:
+                      <br />
+                      What's Happening to Antarctica's Most Critical Ice
+                    </span>
+                    <br />
+                    <br />
+                    <span className={styles.author}>
+                      By Lily Peixuan Yu and Yi-Chun Lan
+                    </span>
+                  </div>
+
+                  <Textbox width={"30%"} xPosition={3} yPosition={100}>
                     Imagine a frozen behemoth so massive that its fate could
                     redraw the world's coastlines.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={3} yPosition={400}>
+                  <Textbox width={"30%"} xPosition={3} yPosition={350}>
                     Antarctica—a continent of ice—holds 90% of Earth's frozen
                     water, a staggering 30 million cubic kilometers of ice.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={500}>
+                  <Textbox width={"30%"} xPosition={55} yPosition={550}>
                     At the heart of this frozen realm lies the Thwaites Glacier,
                     a colossal river of ice stretching 120 kilometers wide—the
                     widest glacier in Antarctica.
@@ -347,7 +362,8 @@ function ScrollamaContainer({
 
             <ImageContainer
               src={"./assets/hot-water-drilling.jpeg"}
-              caption={`BAS team deploying the hot water drill in Thwaites Glacier including Paul Anker, Keith Nicolls, James Smith, and Peter Davis. Icefin - ITGC, Schmidt.`}
+              caption={`BAS team deploying the hot water drill in Thwaites Glacier including Paul Anker, Keith Nicolls, James Smith, and Peter Davis.`}
+              credit={` Icefin - ITGC, Schmidt.`}
             />
           </div>
         </Step>
@@ -387,25 +403,6 @@ function ScrollamaContainer({
                 brings together scientists from five universities and the
                 British Antarctic Survey in a joint U.S.-U.K. effort to
                 understand how warm waters are affecting Thwaites Glacier.
-                {/* <br />
-                <br />
-                The project's approach is as innovative as it is comprehensive.
-                Scientists drill holes through 600 meters of solid ice using hot
-                water drills—creating pathways to deploy their sophisticated
-                instruments. Through these boreholes, they lower Icefin, a
-                state-of-the-art underwater robot equipped with cameras and
-                sensors, to explore the mysterious cavity beneath the glacier.
-                This remote-controlled vehicle acts as scientists' eyes and ears
-                under the ice, gathering crucial data about water temperature,
-                salinity, and currents.
-                <br />
-                <br />
-                Above the ice, researchers use specialized radar systems to
-                measure how quickly the glacier is melting from below, while
-                airborne surveys map the complex network of channels through
-                which warm water might be reaching the glacier's vulnerable
-                underbelly. Together, these measurements help scientists better
-                predict how Thwaites might contribute to future sea level rise. */}
               </p>
             </div>
           </div>
@@ -459,12 +456,13 @@ function ScrollamaContainer({
               alignItems: "center", // Centers content vertically
               justifyContent: "flex-start", // Centers content horizontally
               // gap: "2rem", // Add vertical space between children
-              padding: "50vh 0 0 0",
+              padding: "50vh 0",
             }}
           >
             <ImageContainer
               src={"./assets/icefin-deployment.jpg"}
-              caption={`Icefin deployment at Thwaites Glacier, January 2020. Icefin - ITGC, Dichek.`}
+              caption={`Icefin deployment at Thwaites Glacier, January 2020.`}
+              credit={` Icefin - ITGC, Dichek.`}
             />
             <div
               style={{
@@ -475,17 +473,178 @@ function ScrollamaContainer({
               }}
             >
               <p>
-                The project's approach is as innovative as it is comprehensive.
-                Scientists drill holes through 600 meters of solid ice using hot
-                water drills—creating pathways to deploy their sophisticated
-                instruments. Through these boreholes, they lower Icefin, a
-                state-of-the-art underwater robot equipped with cameras and
-                sensors, to explore the mysterious cavity beneath the glacier.
-                This remote-controlled vehicle acts as scientists' eyes and ears
-                under the ice, gathering crucial data about water temperature,
-                salinity, and currents.
+                Above the ice, researchers use specialized radar systems to
+                measure how quickly the glacier is melting from below, while
+                airborne surveys map the complex network of channels through
+                which warm water might be reaching the glacier's vulnerable
+                underbelly. Together, these measurements help scientists better
+                predict how Thwaites might contribute to future sea level rise.
               </p>
             </div>
+          </div>
+        </Step>
+
+        <Step data={10}>
+          <div
+            id={sections[10].id}
+            className={styles.section}
+            style={{
+              height: "75vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0 0 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <hr />
+              <AnimatedHeading type={"h2"}>
+                "But The Glacier is Still in Trouble."
+              </AnimatedHeading>
+              <p
+                style={{
+                  textAlign: "left",
+                  width: "100%",
+                  fontFamily: "Roboto",
+                  fontSize: "0.95rem",
+                  fontWeight: "500",
+                  lineHeight: "1.4rem",
+                }}
+              >
+                — Peter Davis, in interview with NYU News
+              </p>
+              <br />
+              <p>
+                Despite small amounts of melting, this finding offers no
+                reassurance according to Davis's team. Even with less melting
+                than predicted, the glacier continues its rapid retreat,
+                suggesting that Thwaites is far more sensitive to climate change
+                than previously understood. The glacier's delicate balance can
+                be disrupted by even small changes in ocean temperature.
+                <br />
+                <br />
+                The story became even more concerning in 2022. When David
+                Holland, the lead U.S. principal investigator for the MELT
+                project, led a team to western Thwaites, they made an alarming
+                discovery. The melting rates they observed there were
+                unprecedented—the highest ever recorded anywhere in
+                Antarctica—suggesting that this section of the glacier may have
+                already begun an irreversible retreat.
+              </p>
+            </div>
+          </div>
+        </Step>
+
+        <Step data={11}>
+          <div
+            id={sections[11].id}
+            className={styles.section}
+            style={{
+              height: "75vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0 0 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <p>
+                In just over two decades, Thwaites has dramatically transformed.
+                Its grounding zone, the crucial boundary where glacier meets
+                seafloor, has pulled back more than eight miles—a retreat of 14
+                kilometers that makes Thwaites one of Antarctica's
+                fastest-changing glaciers.
+              </p>
+            </div>
+          </div>
+        </Step>
+        <Step data={11}>
+          <div
+            id={sections[11].id}
+            className={styles.section}
+            style={{
+              height: "75vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0 0 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <p>
+                The situation is particularly alarming because much of Thwaites
+                sits below sea level. This makes the glacier vulnerable to
+                rapid, irreversible ice loss—a collapse that could raise global
+                sea levels by more than half a meter within centuries.
+              </p>
+            </div>
+          </div>
+        </Step>
+
+        <Step data={12}>
+          <div
+            id={sections[12].id}
+            className={styles.section}
+            style={{
+              height: "75vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "50vh 0 10vh 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <p>
+                Scientists now project an even more immediate concern.
+                <br />
+                <br />
+                By 2030, Thwaites is expected to lose its crucial grip on the
+                underwater mountain that helps stabilize it.
+              </p>
+            </div>
+
+            <ImageContainer
+              src={"./assets/ice-cliff.jpg"}
+              caption={`Ice cliffs of Thwaites Glacier.`}
+              credit={` Rob Larter, British Antractic Survey.`}
+              width={"35vw"}
+            />
           </div>
         </Step>
       </Scrollama>

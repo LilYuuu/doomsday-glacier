@@ -12,6 +12,7 @@ const sections = [
     id: "00",
     label: "opening animation",
     background: { type: "video", src: "./assets/ice-output.mp4", play: false },
+    showInTimeLine: false,
   },
   {
     id: "01",
@@ -21,11 +22,14 @@ const sections = [
       src: "./assets/structure-output.mp4",
       play: false,
     },
+    showInTimeLine: false,
   },
   {
     id: "02",
     label: "2004",
     background: { type: "fill", src: "#68757D", play: false },
+    showInTimeLine: true,
+    subtitle: "The First Crack",
   },
   {
     id: "03",
@@ -35,11 +39,15 @@ const sections = [
       src: "./assets/time-lapse-output.mp4",
       play: true,
     },
+    showInTimeLine: true,
+    subtitle: "Satellite evidence of glacier extension breaking apart",
   },
   {
     id: "04",
     label: "2019",
     background: { type: "fill", src: "#68757D", play: false },
+    showInTimeLine: true,
+    subtitle: "Collapse of the ice tongue",
   },
   {
     id: "05",
@@ -49,6 +57,7 @@ const sections = [
       src: "./assets/factors-output.mp4",
       play: false,
     },
+    showInTimeLine: false,
   },
   {
     id: "06",
@@ -58,6 +67,8 @@ const sections = [
       src: "#68757D",
       play: false,
     },
+    showInTimeLine: true,
+    subtitle: "Borehole discoveries beneath the glacier",
   },
   {
     id: "07",
@@ -67,6 +78,7 @@ const sections = [
       src: "./assets/bg-borehole-drilling.png",
       play: false,
     },
+    showInTimeLine: false,
   },
   {
     id: "08",
@@ -76,6 +88,7 @@ const sections = [
       src: "./assets/icefin-bg-output.mp4",
       play: true,
     },
+    showInTimeLine: false,
   },
   {
     id: "09",
@@ -85,15 +98,57 @@ const sections = [
       src: "#68757D",
       play: false,
     },
+    showInTimeLine: false,
+  },
+  {
+    id: "10",
+    label: "2022",
+    background: {
+      type: "image",
+      src: "./assets/bg-cracks.png",
+      play: false,
+    },
+    showInTimeLine: true,
+    subtitle: "Unprecedented glacier melting rates in western Thwaites",
+  },
+  {
+    id: "11",
+    label: "2022-1",
+    background: {
+      type: "video",
+      src: "./assets/icefin-underwater-output.mp4",
+      play: true,
+    },
+    showInTimeLine: false,
+  },
+  {
+    id: "12",
+    label: "2030",
+    background: {
+      type: "fill",
+      src: "#68757D",
+      play: false,
+    },
+    showInTimeLine: true,
+    subtitle: "Last Anchor",
   },
 ];
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showTimeline, setShowTimeline] = useState(false); // Controls animation
 
   const openingAnimationRef = useRef(null);
   const structureRef = useRef(null);
   const factorsRef = useRef(null);
+
+  useEffect(() => {
+    if (activeIndex > 1 && activeIndex <= sections.length - 1) {
+      setShowTimeline(true);
+    } else {
+      setShowTimeline(false);
+    }
+  }, [activeIndex]);
 
   return (
     <div className={styles.app}>
@@ -105,7 +160,11 @@ function App() {
         factorsRef={factorsRef}
       />
 
-      <Timeline sections={sections} activeIndex={activeIndex} />
+      <Timeline
+        sections={sections}
+        activeIndex={activeIndex}
+        visible={showTimeline}
+      />
 
       <div
         style={{
