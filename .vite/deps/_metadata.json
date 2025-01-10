@@ -7,37 +7,37 @@
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "97d3340a",
+      "fileHash": "d6a8daca",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "8d9513a4",
+      "fileHash": "663e6c69",
       "needsInterop": true
     },
     "react-scrollama": {
       "src": "../../node_modules/react-scrollama/dist/index.es.js",
       "file": "react-scrollama.js",
-      "fileHash": "d61edf69",
+      "fileHash": "12de7398",
       "needsInterop": false
     },
     "gsap": {
       "src": "../../node_modules/gsap/index.js",
       "file": "gsap.js",
-      "fileHash": "f705d8a8",
+      "fileHash": "a9739c1a",
       "needsInterop": false
     },
     "gsap/ScrollTrigger": {
       "src": "../../node_modules/gsap/ScrollTrigger.js",
       "file": "gsap_ScrollTrigger.js",
-      "fileHash": "bc926c86",
+      "fileHash": "59257303",
       "needsInterop": false
     },
     "d3": {
       "src": "../../node_modules/d3/src/index.js",
       "file": "d3.js",
-      "fileHash": "6cb332bd",
+      "fileHash": "e4262300",
       "needsInterop": false
     }
   },
