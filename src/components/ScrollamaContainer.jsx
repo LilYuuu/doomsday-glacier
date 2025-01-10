@@ -62,23 +62,27 @@ function ScrollamaContainer({
                     </span>
                   </div>
 
-                  <Textbox width={"30%"} xPosition={3} yPosition={100}>
+                  {/* <Textbox width={"30%"} xPosition={3} yPosition={100}> */}
+                  <Textbox width={"30%"} position={"left"} yPosition={100}>
                     Imagine a frozen behemoth so massive that its fate could
                     redraw the world's coastlines.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={3} yPosition={350}>
+                  {/* <Textbox width={"30%"} xPosition={3} yPosition={350}> */}
+                  <Textbox width={"30%"} position={"left"} yPosition={350}>
                     Antarctica—a continent of ice—holds 90% of Earth's frozen
                     water, a staggering 30 million cubic kilometers of ice.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={550}>
+                  {/* <Textbox width={"30%"} xPosition={55} yPosition={550}> */}
+                  <Textbox width={"30%"} position={"right"} yPosition={550}>
                     At the heart of this frozen realm lies the Thwaites Glacier,
                     a colossal river of ice stretching 120 kilometers wide—the
                     widest glacier in Antarctica.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={650}>
+                  {/* <Textbox width={"30%"} xPosition={55} yPosition={650}> */}
+                  <Textbox width={"30%"} position={"right"} yPosition={650}>
                     The Thwaites Glacier covers an area nearly the size of Great
                     Britain and larger than the state of Florida. Its massive
                     scale makes it a key player in Antarctica's ice sheet
@@ -103,7 +107,7 @@ function ScrollamaContainer({
               id={"structure"}
             >
               <>
-                <Textbox width={"30%"} xPosition={55} yPosition={50}>
+                <Textbox width={"30%"} position={"right"} yPosition={50}>
                   To understand the rapid changes happening with Thwaites
                   Glacier, we need to look beneath its surface.
                   <br />
@@ -113,7 +117,7 @@ function ScrollamaContainer({
                   the critical grounding line where ice meets water.
                 </Textbox>
 
-                <Textbox width={"30%"} xPosition={55} yPosition={150}>
+                <Textbox width={"30%"} position={"right"} yPosition={150}>
                   As the glacier flows toward the sea, it forms a floating ice
                   tongue—an extension of the glacier that projects out over the
                   ocean waters. Like a massive frozen pier, this floating
@@ -121,14 +125,14 @@ function ScrollamaContainer({
                   touches the seafloor beneath it.
                 </Textbox>
 
-                <Textbox width={"30%"} xPosition={55} yPosition={275}>
+                <Textbox width={"30%"} position={"right"} yPosition={275}>
                   Beneath the ice, Thwaites Glacier maintains its grip on
                   underwater mountains and ridges on the seafloor. This grip
                   acts like an anchor, helping to stabilize the massive glacier
                   and slow its movement toward the sea.
                 </Textbox>
 
-                <Textbox width={"30%"} xPosition={55} yPosition={400}>
+                <Textbox width={"30%"} position={"right"} yPosition={400}>
                   The grounding line marks the critical boundary where the
                   glacier transitions from resting on land to floating on the
                   ocean. This line acts as a threshold—behind it, the glacier
@@ -200,17 +204,19 @@ function ScrollamaContainer({
             className={styles.section}
             style={{
               height: "400vh",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center", // Centers content vertically
+              position: "relative",
+
+              // display: "flex",
+              // flexDirection: "column",
+              // alignItems: "center", // Centers content vertically
               // justifyContent: "center", // Centers content horizontally
             }}
           >
-            <Textbox width={"30%"} yPosition={50}>
+            <Textbox width={"30%"} position={"center"} yPosition={50}>
               By 2014, the transformation became starkly visible from space.
             </Textbox>
 
-            <Textbox width={"30%"} yPosition={150}>
+            <Textbox width={"30%"} position={"center"} yPosition={150}>
               Satellite imagery captured a dramatic performance of ice in
               motion—the massive ice tongue of Thwaites Glacier, a floating
               extension of the glacier stretching into the Amundsen Sea, began
@@ -219,7 +225,7 @@ function ScrollamaContainer({
               break apart.
             </Textbox>
 
-            <Textbox width={"30%"} yPosition={250}>
+            <Textbox width={"30%"} position={"center"} yPosition={250}>
               This time-lapse reveals nature's raw power at work—years
               compressed into moments, showing how warming waters relentlessly
               carved away at the glacier's frozen architecture, weakening its
@@ -274,7 +280,7 @@ function ScrollamaContainer({
             >
               {
                 <>
-                  <Textbox width={"30%"} xPosition={55} yPosition={50}>
+                  <Textbox width={"30%"} position={"right"} yPosition={50}>
                     After witnessing these dramatic transformations, a crucial
                     question emerges: What's driving these changes? Returning to
                     our 3D model, we'll examine the three driving forces at
@@ -282,7 +288,7 @@ function ScrollamaContainer({
                     structure.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={150}>
+                  <Textbox width={"30%"} position={"right"} yPosition={150}>
                     Warm ocean water is eating away at the Thwaites Glacier's
                     ice tongue from below. As this floating extension of the
                     glacier thins and weakens, it becomes more vulnerable to
@@ -291,14 +297,14 @@ function ScrollamaContainer({
                     glacier's flow toward the sea.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={300}>
+                  <Textbox width={"30%"} position={"right"} yPosition={300}>
                     As the glacier's base continues to melt, it loses its vital
                     grip on the underwater mountains and ridges below. Without
                     these natural anchors, the glacier's movement toward the sea
                     accelerates.
                   </Textbox>
 
-                  <Textbox width={"30%"} xPosition={55} yPosition={500}>
+                  <Textbox width={"30%"} position={"right"} yPosition={500}>
                     The grounding line—where the glacier lifts off the seafloor
                     and begins to float—is steadily retreating inland. As warm
                     water penetrates deeper beneath the glacier, it forces this
