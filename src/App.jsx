@@ -132,6 +132,16 @@ const sections = [
     showInTimeLine: true,
     subtitle: "Last Anchor",
   },
+  {
+    id: "13",
+    label: "Data Viz",
+    background: {
+      type: "fill",
+      src: "#68757D",
+      play: false,
+    },
+    showInTimeLine: false,
+  },
 ];
 
 function App() {
@@ -143,7 +153,7 @@ function App() {
   const factorsRef = useRef(null);
 
   useEffect(() => {
-    if (activeIndex > 1 && activeIndex <= sections.length - 1) {
+    if (activeIndex > 1 && activeIndex < sections.length - 1) {
       setShowTimeline(true);
     } else {
       setShowTimeline(false);

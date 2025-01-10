@@ -17,7 +17,7 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
         const frameRate = 30; // Adjust to your video's actual frame rate
         const totalFrames = Math.round(videoDuration * frameRate);
 
-        console.log(videoRef, videoDuration);
+        // console.log(videoRef, videoDuration);
 
         const tl = gsap.timeline({
           scrollTrigger: {

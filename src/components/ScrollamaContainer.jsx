@@ -6,6 +6,7 @@ import VideoScrubber from "./VideoScrubber";
 import Textbox from "./Textbox";
 import AnimatedHeading from "./AnimatedHeading";
 import ImageContainer from "./ImageContainer";
+import TreeDiagram from "./TreeDiagram";
 // import ScrollableVideoContainer from "./ScrollableVideoContainer";
 
 function ScrollamaContainer({
@@ -619,7 +620,7 @@ function ScrollamaContainer({
               alignItems: "center", // Centers content vertically
               justifyContent: "flex-start", // Centers content horizontally
               // gap: "2rem", // Add vertical space between children
-              padding: "50vh 0 10vh 0",
+              padding: "50vh 0 0 0",
             }}
           >
             <div
@@ -645,6 +646,95 @@ function ScrollamaContainer({
               credit={` Rob Larter, British Antractic Survey.`}
               width={"35vw"}
             />
+          </div>
+        </Step>
+
+        <Step data={13}>
+          <div
+            id={sections[13].id}
+            className={styles.section}
+            style={{
+              height: "auto",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Centers content vertically
+              justifyContent: "flex-start", // Centers content horizontally
+              // gap: "2rem", // Add vertical space between children
+              padding: "20vh 0 10vh 0",
+            }}
+          >
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+              }}
+            >
+              <hr />
+              <AnimatedHeading type={"h2"}>
+                The Global Impact of a Melting Antarctica
+              </AnimatedHeading>
+              <br />
+              <p>
+                Rising seas threaten more than coastlines. This visualization
+                from the IPCC Special Report shows the cascading effects of
+                ocean warming and polar ice loss. From marine ecosystems to
+                mountain regions, the changes in Antarctica ripple across the
+                globe, affecting everything from food security to water
+                resources.
+              </p>
+            </div>
+            <TreeDiagram data={"./assets/data.json"} />
+
+            <div
+              style={{
+                width: "35vw",
+                position: "relative",
+                padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+                zIndex: "50",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start", // Centers content vertically
+                justifyContent: "flex-start", // Centers content horizontally
+              }}
+            >
+              <hr
+                style={{ width: "10vw", alignSelf: "flex-start", margin: 0 }}
+              />
+              <p
+                style={{
+                  fontFamily: "Roboto",
+                  fontSize: "1rem",
+                  lineHeight: "1.4em",
+                }}
+              >
+                <span style={{ fontWeight: "600", lineHeight: "2rem" }}>
+                  Sources:
+                </span>
+                <br />
+                1. “Thwaites Glacier Facts”. The International Thwaites Glacier
+                Collaboration.
+                <br />
+                2. “Thwaites Glacier Transformed“. NASA Earth Observatory.
+                <br />
+                3. Interview with Peter Davis of the British Antarctic Survey on
+                September 6, 2023.
+                <br />
+                4. “The Threat from Thwaites: The retreat of Antarctica’s
+                riskiest glacier”. #AGU21 Press Conference.
+                <br />
+                7. “Scientists Discover New Processes Driving Retreat of
+                Thwaites Glacier”. NYU News.
+                <br />
+                8. “The fracturing of Antarctica’s Pine Island and Thwaites
+                Glaciers (2014–2020)”. The European Space Agency.
+                <br />
+                9. "Special Report on the Ocean and Cryosphere in a Changing
+                Climate: Technical Summary". The Intergovernmental Panel on
+                Climate Change.
+              </p>
+            </div>
           </div>
         </Step>
       </Scrollama>

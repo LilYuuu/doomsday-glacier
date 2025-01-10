@@ -1,38 +1,31 @@
 import styles from "./Timeline.module.css";
 
 function TimeLine({ sections, activeIndex, visible }) {
-  const getActiveIndex = (section, idx) => {
-    console.log(section);
-    if (section && !section.showInTimeLine) {
-      for (let i = idx - 1; i > 1; i--) {
-        console.log("idx:", i);
-        console.log(sections[i]);
-        if (sections[i].showInTimeLine) {
-          return i;
-        }
+  // Find the last visible index before the current activeIndex
+  const getEffectiveIndex = () => {
+    let lastVisibleIndex = 0;
+    for (let i = 0; i <= activeIndex; i++) {
+      if (sections[i]?.showInTimeLine) {
+        lastVisibleIndex = i;
       }
     }
-
-    return activeIndex; // If no next section with true showInTimeLine, keep the active index
+    return lastVisibleIndex;
   };
 
-  const activeIndexToUse = getActiveIndex(); // Calculate the correct active index
+  const effectiveIndex = getEffectiveIndex();
+
   return (
     <div
       className={`${styles.timeline} ${
         visible ? styles.visible : styles.hidden
       }`}
     >
-      {sections.map((section, idx) =>
-        section.showInTimeLine ? (
+      {sections.map((section, idx) => {
+        return section.showInTimeLine ? (
           <div key={section.id} className={styles.timelineItem}>
             <div
               className={`${styles.dot} ${
-                styles[
-                  activeIndex === idx || getActiveIndex(section, idx) === idx
-                    ? "active"
-                    : ""
-                ]
+                styles[idx === effectiveIndex ? "active" : ""]
               }`}
             />
             <div>
@@ -40,7 +33,7 @@ function TimeLine({ sections, activeIndex, visible }) {
               {section.subtitle && (
                 <div
                   className={`${styles.subtitle} ${
-                    styles[activeIndex === idx ? "active" : ""]
+                    styles[idx === effectiveIndex ? "active" : ""]
                   }`}
                 >
                   {section.subtitle}
@@ -48,8 +41,8 @@ function TimeLine({ sections, activeIndex, visible }) {
               )}
             </div>
           </div>
-        ) : null
-      )}
+        ) : null;
+      })}
     </div>
   );
 }
