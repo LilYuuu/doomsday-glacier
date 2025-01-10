@@ -28,4 +28,5 @@ p {
   font-size: 1.1rem;
   text-wrap: pretty;
   /* text-wrap: balance; */
+  color: white;
 }

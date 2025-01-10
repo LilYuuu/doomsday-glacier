@@ -1,7 +1,25 @@
-video {
+/* video {
   display: block;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
   object-position: center;
+} */
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /* centers vertically */
+  width: 100%; /* fits to width */
+  height: auto; /* maintains aspect ratio */
+  z-index: -1;
 }
