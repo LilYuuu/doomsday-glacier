@@ -22,22 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build for GitHub Pages
+      - name: Build
         run: npm run build
-        env:
-          USE_CUSTOM_DOMAIN: "false"
 
-      - name: Build for Custom Domain
-        run: |
-          mv dist dist-github
-          npm run build
-        env:
-          USE_CUSTOM_DOMAIN: "true"
-
-      - name: Combine builds
-        run: |
-          cp -r dist-github/* dist/
-          echo "doomsday-glacier.lilyyu.me" > dist/CNAME
+      - name: Add CNAME
+        run: echo "doomsday-glacier.lilyyu.me" > dist/CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

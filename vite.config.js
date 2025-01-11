@@ -4,6 +4,6 @@ import eslint from "vite-plugin-eslint";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.USE_CUSTOM_DOMAIN === "true" ? "/" : "/doomsday-glacier/",
+  base: "/",
   plugins: [react(), eslint()],
 });
