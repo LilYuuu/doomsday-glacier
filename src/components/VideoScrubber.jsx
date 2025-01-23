@@ -89,7 +89,8 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
         //   background: "#f0f0f0",
       }}
     >
-      <div id="textbox-container">{children}</div>
+      {children}
+      {/* <div id="textbox-container"></div> */}
     </div>
   );
 }

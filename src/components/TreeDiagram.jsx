@@ -144,22 +144,28 @@ function TreeDiagram({ data }) {
           return radius;
         })
         .attr("fill", (d) => {
-          if (d.data.status == "pos" || d.data.status == "inc") {
+          if (d.data.status === "pos" || d.data.status === "inc") {
             return "#1d3557";
-          } else if (d.data.status == "neg" || d.data.status == "dec") {
+          } else if (d.data.status === "neg" || d.data.status === "dec") {
             return "#e63946";
-          } else if (d.data.status == "pos&neg" || d.data.status == "inc&dec") {
+          } else if (
+            d.data.status === "pos&neg" ||
+            d.data.status === "inc&dec"
+          ) {
             return "#b0b8b5";
           }
 
-          if (d.data.name == "Earth") {
+          if (d.data.name === "Earth") {
             return "#D6CCC2";
-          } else if (d.data.name == "Ocean" || d.parent?.data.name == "Ocean") {
+          } else if (
+            d.data.name === "Ocean" ||
+            d.parent?.data.name === "Ocean"
+          ) {
             // console.log(d.parent.data);
             return "#89c2d9";
           } else if (
-            d.data.name == "High Mountain\n and Polar Land\n Regions" ||
-            d.parent?.data.name == "High Mountain\n and Polar Land\n Regions"
+            d.data.name === "High Mountain\n and Polar Land\n Regions" ||
+            d.parent?.data.name === "High Mountain\n and Polar Land\n Regions"
           ) {
             return "#8AA282";
           } else {

@@ -160,6 +160,24 @@ function App() {
     }
   }, [activeIndex]);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if we're on mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className={styles.app}>
       <Background
@@ -194,6 +212,7 @@ function App() {
 
       {/* Scrollama Steps */}
       <ScrollamaContainer
+        isMobile={isMobile}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
         sections={sections}

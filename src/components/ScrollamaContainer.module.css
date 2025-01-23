@@ -47,3 +47,38 @@
   font-weight: 600;
   font-size: 1rem;
 }
+
+.textContentContainer {
+  width: 35vw;
+  position: relative;
+  padding: 1rem 3rem;
+  /* top: 50vh; */
+  z-index: 50;
+}
+
+/* Mobile breakpoint */
+@media screen and (max-width: 768px) {
+  .title {
+    width: calc(90vw - 2rem);
+    margin-left: 0;
+    padding: 1rem;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+  }
+
+  .headline {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  .author {
+    font-size: 0.875rem;
+  }
+
+  .textContentContainer {
+    width: calc(90vw - 2rem);
+    padding: 1rem;
+    /* top: 50vh; */
+  }
+}

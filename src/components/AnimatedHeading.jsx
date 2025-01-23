@@ -41,15 +41,15 @@ function AnimatedHeading({ type, yPosition, children }) {
     <h2 ref={headingRef}>{children}</h2>
   ) : type === "p" ? (
     <div
-      style={{
-        width: "35vw",
-        position: "relative",
-        marginLeft: "4rem",
-        padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-        top: `${yPosition}vh`,
-        // left: `${xPosition}vw`,
-        zIndex: "50",
-      }}
+    // style={{
+    //   width: "35vw",
+    //   position: "relative",
+    //   marginLeft: "4rem",
+    //   padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
+    //   top: `${yPosition}vh`,
+    //   // left: `${xPosition}vw`,
+    //   zIndex: "50",
+    // }}
     >
       <p ref={headingRef}>{children}</p>
     </div>
