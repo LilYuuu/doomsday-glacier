@@ -22,7 +22,18 @@ function BackgroundVideo({ section, name, videoRef }) {
   const source = section.background.src;
   return (
     <div className={`${styles["video-container"]} ${name}`}>
-      <video ref={videoRef} autoPlay={ifPlay} muted loop>
+      <video
+        ref={videoRef}
+        autoPlay={ifPlay}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        style={{
+          "-webkit-transform-style": "preserve-3d",
+          "transform-style": "preserve-3d",
+        }}
+      >
         <source src={source} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
