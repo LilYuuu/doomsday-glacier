@@ -1,51 +1,25 @@
-// import { useState, useEffect } from "react";
+import styles from "./Textbox.module.css";
 
 function Textbox(props) {
   const { isMobile, children, position = "left", yPosition, width } = props;
 
-  // const [isMobile, setIsMobile] = useState(false);
+  // const textboxStyle = {
+  //   // width: isMobile ? "100vw" : width || "30vw",
+  //   minWidth: "30vw",
+  //   maxWidth: isMobile ? "100%" : width || "30vw", // Constrain width on mobile
+  //   width: "fit-content", // Allow content to determine width up to maxWidth
+  //   // width: width || "100%",
+  //   backgroundColor: "rgba(0, 0, 0, .5)",
+  //   borderRadius: "0.5rem",
+  //   position: "relative",
+  //   padding: isMobile ? "0.5rem 1rem" : "2rem", // Reduced padding on mobile
 
-  // useEffect(() => {
-  //   // Check if we're on mobile
-  //   const checkMobile = () => {
-  //     setIsMobile(window.innerWidth <= 768);
-  //   };
+  //   top: `${yPosition}vh`,
+  //   zIndex: "50",
 
-  //   // Initial check
-  //   checkMobile();
-
-  //   // Add event listener for window resize
-  //   window.addEventListener("resize", checkMobile);
-
-  //   // Cleanup
-  //   return () => window.removeEventListener("resize", checkMobile);
-  // }, []);
-
-  const containerStyle = {
-    width: "100%",
-    display: "flex", // Makes the container a flex container
-    justifyContent: position === "center" ? "center" : "flex-start", // Centers the textbox if position is 'center'
-  };
-
-  const textboxStyle = {
-    // width: isMobile ? "100vw" : width || "30vw",
-    minWidth: "30vw",
-    maxWidth: isMobile ? "100%" : width || "30vw", // Constrain width on mobile
-    width: "fit-content", // Allow content to determine width up to maxWidth
-    // width: width || "100%",
-    backgroundColor: "rgba(0, 0, 0, .5)",
-    borderRadius: "0.5rem",
-    position: "relative",
-    padding: isMobile ? "0.5rem 1rem" : "2rem", // Reduced padding on mobile
-
-    top: `${yPosition}vh`,
-    zIndex: "50",
-    // If position is 'left', add margin to left. If 'right', push to right using margin-left: auto
-    // marginLeft: position === "left" ? "4rem" : "auto",
-    // marginRight: position === "right" ? "4rem" : "auto",
-    marginLeft: isMobile ? "1rem" : position === "left" ? "4rem" : "auto",
-    marginRight: isMobile ? "1rem" : position === "right" ? "4rem" : "auto",
-  };
+  //   marginLeft: isMobile ? "1rem" : position === "left" ? "4rem" : "auto",
+  //   marginRight: isMobile ? "1rem" : position === "right" ? "4rem" : "auto",
+  // };
 
   const textStyle = {
     color: "white",
@@ -53,7 +27,14 @@ function Textbox(props) {
 
   return (
     // <div style={containerStyle}>
-    <div style={textboxStyle}>
+    <div
+      className={styles.textContainer}
+      style={{
+        top: `${yPosition}vh`,
+        marginLeft: position === "left" ? "4rem" : "auto",
+        marginRight: position === "right" ? "4rem" : "auto",
+      }}
+    >
       <p style={textStyle}>{children}</p>
     </div>
     // </div>

@@ -1,0 +1,17 @@
+.textContainer {
+  width: 30vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  position: relative;
+  padding: 2rem;
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  .textContainer {
+    width: 90vw !important;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+}
