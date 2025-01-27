@@ -1,7 +1,7 @@
 .imageContainer {
   width: 50vw;
   position: relative;
-  padding: 1rem 3rem; /* To offset slides a tiny bit from the left side of the screen */
+  padding: 1rem 3rem;
   z-index: 50;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 
 @media (max-width: 768px) {
   .imageContainer {
-    width: 90vw !important;
+    width: calc(90vw - 2rem) !important;
     padding: 1rem;
   }
 }

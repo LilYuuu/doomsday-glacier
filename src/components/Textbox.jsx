@@ -28,7 +28,7 @@ function Textbox(props) {
   return (
     // <div style={containerStyle}>
     <div
-      className={styles.textContainer}
+      className={styles.textBoxContainer}
       style={{
         top: `${yPosition}vh`,
         marginLeft: position === "left" ? "4rem" : "auto",
