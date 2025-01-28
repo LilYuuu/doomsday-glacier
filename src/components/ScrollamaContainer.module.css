@@ -56,6 +56,12 @@
   z-index: 50;
 }
 
+.srcHr {
+  width: 10vw;
+  align-self: flex-start;
+  margin: 0;
+}
+
 /* Mobile breakpoint */
 @media screen and (max-width: 768px) {
   .title {
@@ -80,5 +86,9 @@
     width: calc(90vw - 2rem);
     padding: 1rem;
     /* top: 50vh; */
+  }
+
+  .srcHr {
+    width: 20vw;
   }
 }
