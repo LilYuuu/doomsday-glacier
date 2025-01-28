@@ -15,6 +15,7 @@ function ImageContainer({ src, caption, credit, width }) {
           fontSize: "0.95rem",
           fontWeight: "500",
           lineHeight: "1.4rem",
+          padding: "0.5rem 0",
         }}
       >
         {caption}

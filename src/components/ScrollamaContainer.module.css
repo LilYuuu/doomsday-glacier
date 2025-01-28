@@ -22,14 +22,14 @@
 
 .title {
   width: 35vw;
-  position: absolute;
+  position: relative;
   /* color: #001355; */
   color: white;
 
   margin-left: 4rem;
   padding: 1rem 3rem;
-  top: 60%;
-  transform: translateY(-60%);
+  top: 40vh;
+  /* transform: translateY(-60%); */
   /* left: 50%;
   transform: translateX(-50%); */
   z-index: 50;
@@ -62,15 +62,20 @@
   margin: 0;
 }
 
+hr {
+  color: white;
+  margin: 2rem 0;
+}
+
 /* Mobile breakpoint */
 @media screen and (max-width: 768px) {
   .title {
     width: calc(90vw - 2rem);
-    margin-left: 0;
+    margin-left: 1rem;
     padding: 1rem;
-    top: 80%;
+    /* top: 80%;
     left: 50%;
-    transform: translate(-50%, -80%);
+    transform: translate(-50%, -80%); */
   }
 
   .headline {

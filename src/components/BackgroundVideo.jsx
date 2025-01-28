@@ -21,7 +21,7 @@ function BackgroundVideo({ section, name, videoRef }) {
   const ifPlay = section.background.play;
   const source = section.background.src;
   return (
-    <div className={`${styles["video-container"]} ${name}`}>
+    <div className={`${styles.videoContainer} ${name}`}>
       <video
         ref={videoRef}
         autoPlay={ifPlay}

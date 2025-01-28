@@ -151,7 +151,6 @@ function ScrollamaContainer({
               style={{ top: "50vh" }}
             >
               <hr />
-
               <AnimatedHeading type={"h2"}>
                 How Did Thwaites Glacier Begin to Fall Apart?
               </AnimatedHeading>
@@ -326,7 +325,6 @@ function ScrollamaContainer({
               className={styles.textContentContainer}
             >
               <hr />
-
               <AnimatedHeading type={"h2"}>
                 Drilling into the Unknown: Unexpected Findings Beneath Thwaites
               </AnimatedHeading>
@@ -503,6 +501,7 @@ function ScrollamaContainer({
               <AnimatedHeading type={"h2"}>
                 "But The Glacier is Still in Trouble."
               </AnimatedHeading>
+
               <p
                 style={{
                   textAlign: "left",
@@ -513,7 +512,7 @@ function ScrollamaContainer({
                   lineHeight: "1.4rem",
                 }}
               >
-                — Peter Davis, in interview with NYU News
+                <br />— Peter Davis, in interview with NYU News
               </p>
               <br />
               <p>
@@ -697,6 +696,7 @@ function ScrollamaContainer({
               className={styles.textContentContainer}
             >
               <hr className={styles.srcHr} />
+              <br />
               <p
                 style={{
                   fontFamily: "Roboto",

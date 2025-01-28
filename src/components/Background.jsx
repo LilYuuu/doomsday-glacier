@@ -1,9 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useEffect, useRef, useState } from "react";
 import styles from "./Background.module.css";
 import BackgroundVideo from "./BackgroundVideo";
 import BackgroundImage from "./BackgroundImage";
-import AnimatedHeading from "./AnimatedHeading";
 
 function Background({
   sections,
@@ -12,29 +10,8 @@ function Background({
   structureRef,
   factorsRef,
 }) {
-  // const sectionRef = useRef(null);
-
   return (
     <div className={styles.backgroundLayer}>
-      {/* <BackgroundVideo
-        section={sections[0]}
-        name={`${styles.backgroundItem} ${
-          activeIndex === 0 ? styles.active : ""
-        }`}
-      />
-      <BackgroundVideo
-        section={sections[1]}
-        name={`${styles.backgroundItem} ${
-          activeIndex === 1 ? styles.active : ""
-        }`}
-      />
-      <BackgroundImage
-        section={sections[2]}
-        name={`${styles.backgroundItem}  ${
-          activeIndex === 2 ? styles.active : ""
-        }`}
-      /> */}
-
       {sections.map((section, idx) => {
         if (!section.background) {
           return <></>;
