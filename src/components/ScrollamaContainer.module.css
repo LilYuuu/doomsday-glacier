@@ -56,6 +56,12 @@
   z-index: 50;
 }
 
+.srcText {
+  font-family: "Roboto";
+  font-size: 1re;
+  line-height: 1.4em;
+}
+
 .srcHr {
   width: 10vw;
   align-self: flex-start;
@@ -91,6 +97,11 @@ hr {
     width: calc(90vw - 2rem);
     padding: 1rem;
     /* top: 50vh; */
+  }
+
+  .srcText {
+    font-size: 0.875rem;
+    line-height: 1.4em;
   }
 
   .srcHr {

@@ -697,13 +697,7 @@ function ScrollamaContainer({
             >
               <hr className={styles.srcHr} />
               <br />
-              <p
-                style={{
-                  fontFamily: "Roboto",
-                  fontSize: "1rem",
-                  lineHeight: "1.4em",
-                }}
-              >
+              <p className={styles.srcText} style={{}}>
                 <span style={{ fontWeight: "600", lineHeight: "2rem" }}>
                   Sources:
                 </span>
