@@ -10,9 +10,12 @@ function TreeDiagram({ data }) {
     // Clear previous SVG content
     d3.select(svgRef.current).selectAll("*").remove();
 
-    // const parentNode = containerRef.current.parentElement;
     const width = containerRef.current.clientWidth;
     const height = containerRef.current.clientHeight;
+
+    const baseWidth = 1920; // Base width for reference (or whatever your design base is)
+    // const getScaleFactor = () => Math.min(width / baseWidth, 1);
+    const scaleFactor = Math.min(width / baseWidth, 1);
 
     function highlightPath(node) {
       // Traverse up the hierarchy to find the ancestors
@@ -31,7 +34,7 @@ function TreeDiagram({ data }) {
           pathNodes.has(linkData.target) ? "white" : "darkgray"
         )
         .style("stroke-width", (linkData) =>
-          pathNodes.has(linkData.target) ? 1.5 : 1
+          pathNodes.has(linkData.target) ? 1.5 * scaleFactor : 1 * scaleFactor
         )
         .style("stroke-opacity", (linkData) =>
           pathNodes.has(linkData.target) ? 1 : 0.7
@@ -81,10 +84,8 @@ function TreeDiagram({ data }) {
         .select(svgRef.current)
         .attr("viewBox", `0 0 ${width} ${height}`)
         .attr("width", width)
-        .attr("height", height)
-        // .attr("viewBox", "0 0 1000 800")
-        .attr("preserveAspectRatio", "xMidYMid meet");
-      // .attr("preserveAspectRatio", "xMinYMin slice");
+        .attr("height", height);
+      // .attr("preserveAspectRatio", "xMidYMid meet");
 
       const graphGroup = svg
         .append("g")
@@ -99,7 +100,7 @@ function TreeDiagram({ data }) {
         .attr("fill", "none")
         .attr("stroke", "darkgray")
         .attr("stroke-opacity", 0.7)
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 1 * scaleFactor)
         .attr(
           "d",
           d3
@@ -147,7 +148,7 @@ function TreeDiagram({ data }) {
           }
 
           d.originalRadius = radius; // Store the original radius
-          return radius;
+          return radius * scaleFactor;
         })
         .attr("fill", (d) => {
           if (d.data.status === "pos" || d.data.status === "inc") {
@@ -205,8 +206,8 @@ function TreeDiagram({ data }) {
             .attr(
               "font-size",
               d.originalFontSize < 18
-                ? d.originalFontSize * 1.6
-                : d.originalFontSize * 1.2
+                ? d.originalFontSize * 1.6 * scaleFactor
+                : d.originalFontSize * 1.2 * scaleFactor
             );
           d3.select(this)
             .interrupt()
@@ -215,8 +216,8 @@ function TreeDiagram({ data }) {
             .attr(
               "r",
               d.originalRadius < 24
-                ? d.originalRadius * 2
-                : d.originalRadius * 1.4
+                ? d.originalRadius * 2 * scaleFactor
+                : d.originalRadius * 1.4 * scaleFactor
             );
         })
         .on("mouseout", function (event, d) {
@@ -232,11 +233,11 @@ function TreeDiagram({ data }) {
             .transition()
             .duration(200)
             .style("opacity", d.data.confidence ? 0.3 : 1)
-            .attr("font-size", d.originalFontSize);
+            .attr("font-size", d.originalFontSize * scaleFactor);
           d3.select(this)
             .transition()
             .duration(200) // duration of the transition
-            .attr("r", d.originalRadius); // revert to the original radius
+            .attr("r", d.originalRadius * scaleFactor); // revert to the original radius
         });
 
       // Add node labels
@@ -259,7 +260,7 @@ function TreeDiagram({ data }) {
             fontSize = 12;
           }
           d.originalFontSize = fontSize; // Store the original font size
-          return fontSize;
+          return fontSize * scaleFactor;
         })
         .attr("text-anchor", (d) => (d.x < Math.PI ? "start" : "end"))
         .attr("transform", (d) => {
@@ -300,16 +301,16 @@ function TreeDiagram({ data }) {
                   d.data.name === "Ocean" ||
                   d.data.name === "High Mountain\n and Polar Land\n Regions"
                 ) {
-                  return d.x < Math.PI ? 28 : -28;
+                  return d.x < Math.PI ? 28 * scaleFactor : -28 * scaleFactor;
                 }
-                return d.x < Math.PI ? 16 : -16;
+                return d.x < Math.PI ? 16 * scaleFactor : -16 * scaleFactor;
               })
               .text(lines[i]);
             // y += 16; // Adjust the line height as needed
           }
         });
     });
-  }, [data]);
+  }, [data, containerRef, svgRef]);
 
   return (
     <div className={styles.treeContainer} style={{}} ref={containerRef}>
