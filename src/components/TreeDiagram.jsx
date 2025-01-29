@@ -1,15 +1,18 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
+import styles from "./TreeDiagram.module.css";
 
 function TreeDiagram({ data }) {
+  const containerRef = useRef();
   const svgRef = useRef();
 
   useEffect(() => {
     // Clear previous SVG content
     d3.select(svgRef.current).selectAll("*").remove();
 
-    const width = window.innerWidth * 0.98;
-    const height = window.innerHeight * 1.8;
+    // const parentNode = containerRef.current.parentElement;
+    const width = containerRef.current.clientWidth;
+    const height = containerRef.current.clientHeight;
 
     function highlightPath(node) {
       // Traverse up the hierarchy to find the ancestors
@@ -78,7 +81,10 @@ function TreeDiagram({ data }) {
         .select(svgRef.current)
         .attr("viewBox", `0 0 ${width} ${height}`)
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        // .attr("viewBox", "0 0 1000 800")
+        .attr("preserveAspectRatio", "xMidYMid meet");
+      // .attr("preserveAspectRatio", "xMinYMin slice");
 
       const graphGroup = svg
         .append("g")
@@ -306,10 +312,7 @@ function TreeDiagram({ data }) {
   }, [data]);
 
   return (
-    <div
-      className="treeContainer"
-      style={{ position: "relative", margin: "-8rem 0 0 0" }}
-    >
+    <div className={styles.treeContainer} style={{}} ref={containerRef}>
       <svg ref={svgRef}></svg>
     </div>
   );

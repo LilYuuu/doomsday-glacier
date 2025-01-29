@@ -673,13 +673,14 @@ function ScrollamaContainer({
               <br />
               <p>
                 Rising seas threaten more than coastlines. This visualization
-                from the IPCC Special Report shows the cascading effects of
+                based on the IPCC Special Report shows the cascading effects of
                 ocean warming and polar ice loss. From marine ecosystems to
                 mountain regions, the changes in Antarctica ripple across the
                 globe, affecting everything from food security to water
                 resources.
               </p>
             </div>
+
             <TreeDiagram data={"./assets/data.json"} />
 
             <div
