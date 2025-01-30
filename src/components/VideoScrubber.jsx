@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Textbox from "./Textbox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,7 +89,6 @@ function VideoScrubber({ videoRef, contentContainerHeight, id, children }) {
       }}
     >
       {children}
-      {/* <div id="textbox-container"></div> */}
     </div>
   );
 }
