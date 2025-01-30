@@ -3,29 +3,18 @@
   --container-height: 550px;
 } */
 
-.outerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 100vh; */
-  /* margin: 0; */
-  width: 90vw;
-  height: auto;
-  padding: 1rem;
-  margin: 0 auto;
-}
-
 .container {
   position: relative;
   /* width: var(--container-width);
   height: var(--container-height); */
   overflow: hidden;
-  width: 100%;
-  max-width: 100%;
+  /* width: fit-content; */
+  max-width: 50vw;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* padding: 0 2rem; */
 }
 
 .imgWrapper {
@@ -46,8 +35,8 @@
 }
 
 .before {
-  clip: rect(0, calc(var(--container-width) / 2), var(--container-height), 0);
-  /* Initially showing half of the image */
+  /* clip: rect(0, 50%, 100%, 0); */
+  clip-path: inset(0 50% 0 0); /* Initial 50/50 split */
 }
 
 .slider {
@@ -95,4 +84,12 @@
   box-shadow: 1px 1px 1px hsl(0, 50%, 2%, 0.5);
   cursor: pointer;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    /* width: calc(90vw - 2rem); */
+    max-width: 90vw;
+    /* padding: 0 1rem; */
+  }
 }
