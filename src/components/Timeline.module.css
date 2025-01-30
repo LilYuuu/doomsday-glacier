@@ -72,7 +72,7 @@
 }
 
 .label {
-  font-weight: 800;
+  font-weight: 600;
   color: white;
 }
 
@@ -82,6 +82,7 @@
   line-height: 1.2rem;
   color: grey;
   transition: color 0.3s;
+  font-weight: 400;
 }
 
 .subtitle.active {

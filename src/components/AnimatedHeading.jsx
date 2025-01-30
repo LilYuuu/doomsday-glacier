@@ -38,7 +38,9 @@ function AnimatedHeading({ type, yPosition, children }) {
   }, []);
 
   return type === "h2" ? (
-    <h2 ref={headingRef}>{children}</h2>
+    <h2 ref={headingRef} style={{ fontWeight: "600" }}>
+      {children}
+    </h2>
   ) : type === "p" ? (
     <div
     // style={{
