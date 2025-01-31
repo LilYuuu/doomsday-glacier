@@ -13,7 +13,7 @@ const sections = [
     label: "opening animation",
     background: {
       type: "video",
-      src: "./assets/opening-output-1440.mp4",
+      src: "./assets/opening-output-1280.mp4",
       play: false,
     },
     showInTimeLine: false,
