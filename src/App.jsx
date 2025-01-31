@@ -11,7 +11,11 @@ const sections = [
   {
     id: "00",
     label: "opening animation",
-    background: { type: "video", src: "./assets/ice-output.mp4", play: false },
+    background: {
+      type: "video",
+      src: "./assets/opening-output-1440.mp4",
+      play: false,
+    },
     showInTimeLine: false,
   },
   {
@@ -19,7 +23,7 @@ const sections = [
     label: "glacier structure",
     background: {
       type: "video",
-      src: "./assets/structure-output.mp4",
+      src: "./assets/structure-output-1440.mp4",
       play: false,
     },
     showInTimeLine: false,
@@ -54,7 +58,7 @@ const sections = [
     label: "melting factors",
     background: {
       type: "video",
-      src: "./assets/factors-output.mp4",
+      src: "./assets/factors-output-1440.mp4",
       play: false,
     },
     showInTimeLine: false,
