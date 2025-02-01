@@ -38,7 +38,7 @@ function ScrollamaContainer({
             >
               {
                 <>
-                  <div className={styles.title}>
+                  <div className={`${styles.title} ${styles.textShadow}`}>
                     <hr />
                     <br />
                     <span className={styles.headline}>
@@ -376,7 +376,7 @@ function ScrollamaContainer({
               //   padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
               //   zIndex: "50",
               // }}
-              className={styles.textContentContainer}
+              className={`${styles.textContentContainer} ${styles.textShadow}`}
             >
               <hr />
               <AnimatedHeading type={"h2"}>
@@ -411,13 +411,7 @@ function ScrollamaContainer({
             }}
           >
             <div
-              // style={{
-              //   width: "35vw",
-              //   position: "relative",
-              //   padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-              //   zIndex: "50",
-              // }}
-              className={styles.textContentContainer}
+              className={`${styles.textContentContainer} ${styles.textShadow}`}
             >
               <p>
                 The project's approach is as innovative as it is comprehensive.
@@ -489,13 +483,7 @@ function ScrollamaContainer({
             }}
           >
             <div
-              // style={{
-              //   width: "35vw",
-              //   position: "relative",
-              //   padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-              //   zIndex: "50",
-              // }}
-              className={styles.textContentContainer}
+              className={`${styles.textContentContainer} ${styles.textShadow}`}
             >
               <hr />
               <AnimatedHeading type={"h2"}>
@@ -551,13 +539,7 @@ function ScrollamaContainer({
             }}
           >
             <div
-              // style={{
-              //   width: "35vw",
-              //   position: "relative",
-              //   padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-              //   zIndex: "50",
-              // }}
-              className={styles.textContentContainer}
+              className={`${styles.textContentContainer} ${styles.textShadow}`}
             >
               <p>
                 In just over two decades, Thwaites has dramatically transformed.
@@ -584,13 +566,7 @@ function ScrollamaContainer({
             }}
           >
             <div
-              // style={{
-              //   width: "35vw",
-              //   position: "relative",
-              //   padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-              //   zIndex: "50",
-              // }}
-              className={styles.textContentContainer}
+              className={`${styles.textContentContainer} ${styles.textShadow}`}
             >
               <p>
                 The situation is particularly alarming because much of Thwaites
@@ -616,15 +592,7 @@ function ScrollamaContainer({
               padding: "50vh 0 0 0",
             }}
           >
-            <div
-              // style={{
-              //   width: "35vw",
-              //   position: "relative",
-              //   padding: "1rem 3rem", // To offset slides a tiny bit from the left side of the screen
-              //   zIndex: "50",
-              // }}
-              className={styles.textContentContainer}
-            >
+            <div className={styles.textContentContainer}>
               <p>
                 Scientists now project an even more immediate concern.
                 <br />
