@@ -7,7 +7,7 @@ import Textbox from "./Textbox";
 import AnimatedHeading from "./AnimatedHeading";
 import ImageContainer from "./ImageContainer";
 import TreeDiagram from "./TreeDiagram";
-// import ScrollableVideoContainer from "./ScrollableVideoContainer";
+// import data from "../data/impact-data.json";
 
 function ScrollamaContainer({
   activeIndex,
@@ -649,7 +649,7 @@ function ScrollamaContainer({
               </p>
             </div>
 
-            <TreeDiagram data={"./assets/data.json"} />
+            <TreeDiagram data={"src/data/impact-data.json"} />
 
             <div
               // style={{

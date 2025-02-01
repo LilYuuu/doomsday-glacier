@@ -1,10 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import styles from "./App.module.css";
 import Background from "./components/Background";
-// import Content from "./components/Content";
 import Timeline from "./components/TimeLine";
-// import Draggable from "./components/Draggable";
-// import { Scrollama, Step } from "react-scrollama";
 import ScrollamaContainer from "./components/ScrollamaContainer";
 
 const sections = [
