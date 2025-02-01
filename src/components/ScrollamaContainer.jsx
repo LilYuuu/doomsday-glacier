@@ -40,7 +40,7 @@ function ScrollamaContainer({
                 <>
                   <div className={`${styles.title} ${styles.textShadow}`}>
                     <hr />
-                    <br />
+
                     <span className={styles.headline}>
                       The Doomsday Glacier:
                       <br />

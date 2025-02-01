@@ -69,12 +69,12 @@
 }
 
 hr {
-  color: white;
-  margin: 2rem 0;
+  border-top: 0px;
+  margin: 2.4rem 0;
 }
 
 .textShadow {
-  text-shadow: 0 0 0.5em black;
+  text-shadow: 0 0 0.8em black;
 }
 
 /* Mobile breakpoint */
