@@ -649,7 +649,7 @@ function ScrollamaContainer({
               </p>
             </div>
 
-            <TreeDiagram data={"/data/impact-data.json"} />
+            <TreeDiagram data={"/doomsday-glacier/data/impact-data.json"} />
 
             <div
               // style={{
