@@ -15,20 +15,16 @@ function Draggable() {
   let width;
 
   function handleSliderInput(e) {
-    // const slider = sliderRef.current;
+    const sliderValue = e.target.value; // 0–100
 
-    const sliderValue = e.target.value;
-    width = beforeImage.offsetWidth;
-    const height = beforeImage.offsetHeight;
-    const newClip = (sliderValue / 100) * width;
-
-    // Apply the clipping to the image and move the button and line
-    // beforeImage.style.clip = `rect(0, ${newClip}px, ${height}px, 0)`;
-    // sliderButton.style.left = `${newClip}px`;
-    // sliderLine.style.left = `${newClip}px`;
+    // ClipPath in %
     beforeImage.style.clipPath = `inset(0 ${100 - sliderValue}% 0 0)`;
-    sliderButton.style.left = `${sliderValue}%`;
+
+    // Line and button also in %
     sliderLine.style.left = `${sliderValue}%`;
+
+    // Center the button using translate, so no hardcoded px offsets
+    sliderButton.style.left = `${sliderValue}%`;
   }
 
   //   useEffect(() => {
